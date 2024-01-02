@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_id_home"
+        android:enabled="true"
+        android:icon="@drawable/ic_home"
+        android:title="Home"/>
+    <item
+        android:id="@+id/nav_id_shop"
+        android:enabled="true"
+        android:icon="@drawable/ic_shop"
+        android:title="Shop"/>
+    <item
+        android:id="@+id/nav_id_pets"
+        android:enabled="true"
+        android:icon="@drawable/ic_pets"
+        android:title="Pets"/>
+    <item
+        android:id="@+id/nav_id_settings"
+        android:enabled="true"
+        android:icon="@drawable/ic_settings"
+        android:title="Settings"/>
+
+
+</menu>
