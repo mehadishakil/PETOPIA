@@ -1,6 +1,7 @@
 package com.example.petopia.networking;
 
 
+import com.example.petopia.model.pojo.CompareOTP;
 import com.example.petopia.model.pojo.OtpResponse;
 import com.example.petopia.model.pojo.ServerResponse;
 import com.example.petopia.model.pojo.User;
@@ -33,6 +34,6 @@ public interface ApiService {
     Call<List<YourPet>> getYourPets(@Query("user_id") String userID);
 
     @POST("signup.php")
-    Call<ResponseUser> confirmAccount(@Body UserID userID);
+    Call<ServerResponse> confirmAccount(@Body CompareOTP compareOTP);
 
 }

@@ -67,25 +67,14 @@ public class Signup extends AppCompatActivity implements ISignView {
                 signupController.onSignup(strSignupEmail, strSignupPassword, strSignupConfirmPassword);
             }
         });
-
-
     }
 
     @Override
-    public void onSignupSuccess(String message, String otp) {
-
-//        // Get the SharedPreferences editor
-//        SharedPreferences.Editor editor = sharedPrefs.edit();
-//        // Modify the preferences using the editor
-//        editor.putBoolean("isLoggedIn", true);
-//        editor.putString("user_id", userID);
-//        editor.apply();
-
-
-
+    public void onSignupSuccess(String message, String otp, String user_id) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, VerifyOtp.class);
         intent.putExtra("OTP", otp);
+        intent.putExtra("user_id", user_id);
         startActivity(intent);
     }
 

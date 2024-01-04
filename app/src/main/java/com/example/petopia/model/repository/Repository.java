@@ -1,5 +1,6 @@
 package com.example.petopia.model.repository;
 
+import com.example.petopia.model.pojo.CompareOTP;
 import com.example.petopia.model.pojo.Event;
 import com.example.petopia.model.pojo.OtpResponse;
 import com.example.petopia.model.pojo.ResponseUser;
@@ -47,6 +48,13 @@ public class Repository {
         Call<List<YourPet>> call = apiService.getYourPets(userID.getUser_id());
         call.enqueue(callback);
     }
+
+    public void verifyOTP(CompareOTP compareOTP, Callback<ServerResponse> callback) {
+        Call<ServerResponse> call = apiService.confirmAccount(compareOTP);
+        call.enqueue(callback);
+    }
+
+
 
 
 }

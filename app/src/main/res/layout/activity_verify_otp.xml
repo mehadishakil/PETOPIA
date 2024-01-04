@@ -32,14 +32,14 @@
         app:layout_constraintTop_toBottomOf="@id/ivLogo" />
 
     <TextView
-        android:id="@+id/tvVerificationTitle2"
+        android:id="@+id/tvEmailID"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:gravity="center"
-        android:text="Please type the verification code sent to\n+8801796581711"
+        android:text="Please type the verification code sent to your email"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,7 +55,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvVerificationTitle2">
+        app:layout_constraintTop_toBottomOf="@id/tvEmailID">
 
         <!-- Customize the attributes based on your design preferences -->
         <EditText

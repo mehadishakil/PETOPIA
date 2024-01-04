@@ -78,7 +78,7 @@ public class LoginController implements ILogController {
                     if (response.isSuccessful()) {
                         OtpResponse otpResponse = response.body();
                         if (otpResponse != null && "otp sent".equals(otpResponse.getMessage())) {
-                            signupView.onSignupSuccess(otpResponse.getMessage(), otpResponse.getOtp());
+                            signupView.onSignupSuccess(otpResponse.getMessage(), otpResponse.getOtp(), otpResponse.getUnique_id());
                         } else {
                             signupView.onSignupError("Registration failed");
                         }
