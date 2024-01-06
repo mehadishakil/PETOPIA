@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8FFFF"
     tools:context=".view.FragmentShop">
 
 
@@ -22,8 +21,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#F8FFFF">
+                android:layout_height="match_parent">
 
                 <ImageView
                     android:id="@+id/imageView"
@@ -49,32 +47,15 @@
                     app:layout_constraintStart_toEndOf="@+id/imageView"
                     app:layout_constraintTop_toTopOf="parent" />
 
+
+
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_margin="7dp"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="9dp"
-                        android:src="@drawable/ic_filter" />
-
-                </androidx.cardview.widget.CardView>
-
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_margin="7dp"
-                    app:cardCornerRadius="10dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/cardView"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
