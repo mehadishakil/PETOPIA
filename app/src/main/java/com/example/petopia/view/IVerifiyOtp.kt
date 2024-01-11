@@ -1,6 +1,6 @@
 package com.example.petopia.view
 
-interface IVerifiyOtpView {
+interface IVerifiyOtp {
     fun OnSuccess(message : String);
     fun OnFailed(message : String);
 }

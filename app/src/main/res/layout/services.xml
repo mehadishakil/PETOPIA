@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/_90sdp"
-    android:layout_height="@dimen/_90sdp"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/_70sdp"
+    android:layout_height="@dimen/_70sdp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="8dp">
@@ -9,7 +10,7 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:cardCornerRadius="@dimen/_7sdp"
+        app:cardCornerRadius="@dimen/_3sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -17,7 +18,7 @@
 
 
         <LinearLayout
-            android:background="#2AE0EBEC"
+            android:background="#0AE0EBEC"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -29,7 +30,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="8"
-                android:scaleType="fitCenter"
+                android:padding="@dimen/_5sdp"
+                android:scaleType="centerCrop"
                 app:srcCompat="@drawable/ic_daycare" />
 
             <TextView
@@ -39,12 +41,12 @@
                 android:layout_weight="2"
                 android:layout_marginBottom="3dp"
                 android:layout_gravity="center"
+                android:fontFamily="@font/raleway"
                 android:gravity="center"
                 android:text="DayCare"
-                android:textColor="@color/black"
-                android:textStyle="bold"
+                android:textColor="#333030"
                 app:layout_constraintTop_toBottomOf="@+id/serviceImage"
-                tools:textSize="14sp" />
+                tools:textSize="12sp" />
 
 
         </LinearLayout>

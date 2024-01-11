@@ -7,8 +7,8 @@ import com.example.petopia.model.pojo.OtpResponse;
 import com.example.petopia.model.pojo.User;
 import com.example.petopia.model.pojo.ResponseUser;
 import com.example.petopia.model.repository.Repository;
-import com.example.petopia.view.ILogView;
-import com.example.petopia.view.ISignView;
+import com.example.petopia.view.ILogin;
+import com.example.petopia.view.ISignUp;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -16,16 +16,16 @@ import retrofit2.Response;
 
 public class LoginController implements ILogController {
 
-    ILogView loginView;
-    ISignView signupView;
+    ILogin loginView;
+    ISignUp signupView;
     Repository repository;
 
-    public LoginController(ILogView loginView) {
+    public LoginController(ILogin loginView) {
         this.loginView = loginView;
         this.repository = new Repository();
     }
 
-    public LoginController(ISignView signupView) {
+    public LoginController(ISignUp signupView) {
         this.signupView = signupView;
         this.repository = new Repository();
     }

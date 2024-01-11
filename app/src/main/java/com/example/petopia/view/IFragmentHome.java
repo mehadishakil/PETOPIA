@@ -5,7 +5,7 @@ import com.example.petopia.model.pojo.YourPet;
 
 import java.util.List;
 
-public interface IFragmentHomeView {
+public interface IFragmentHome {
 
     void onGetEvents(List<Event> eventList);
 

@@ -16,7 +16,7 @@ import com.example.petopia.R;
 import com.example.petopia.controller.ILogController;
 import com.example.petopia.controller.LoginController;
 
-public class Signup extends AppCompatActivity implements ISignView {
+public class Signup extends AppCompatActivity implements ISignUp {
 
     private EditText SignupEmail, SignupPassword, SignupConfirmPassword;
     private String strSignupEmail, strSignupPassword, strSignupConfirmPassword;

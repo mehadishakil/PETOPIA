@@ -16,7 +16,7 @@ import com.example.petopia.R;
 import com.example.petopia.controller.ILogController;
 import com.example.petopia.controller.LoginController;
 
-public class Login extends AppCompatActivity implements ILogView {
+public class Login extends AppCompatActivity implements ILogin {
 
     private EditText loginEmail, loginPassword;
     private String logEmail, logPass;

@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 } else if (itemId == R.id.nav_id_shop) {
                     ReplaceFragment(new FragmentShop());
                 } else if (itemId == R.id.nav_id_pets) {
-                    ReplaceFragment(new FragmentPets());
+                    ReplaceFragment(new FragmentAdoptions());
                 }else if (itemId == R.id.nav_id_settings) {
                     ReplaceFragment(new FragmentSettings());
                 }

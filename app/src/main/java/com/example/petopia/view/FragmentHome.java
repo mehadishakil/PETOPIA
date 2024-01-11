@@ -19,7 +19,6 @@ import android.widget.Toast;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
-import com.example.petopia.Observer.DataObserver;
 import com.example.petopia.R;
 import com.example.petopia.adapter.PetAdapter;
 import com.example.petopia.adapter.ServiceAdapter;
@@ -33,7 +32,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class FragmentHome extends Fragment implements IFragmentHomeView {
+public class FragmentHome extends Fragment implements IFragmentHome {
 
     private ImageSlider imageSlider;
     TextView addYourPet;
@@ -41,6 +40,7 @@ public class FragmentHome extends Fragment implements IFragmentHomeView {
     RecyclerView rvYourPet, rvServices;
     PetAdapter petAdapter;
     List<YourPet> petList = new ArrayList<>();
+    View view;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,7 +52,7 @@ public class FragmentHome extends Fragment implements IFragmentHomeView {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        view = inflater.inflate(R.layout.fragment_home, container, false);
 
         imageSlider = view.findViewById(R.id.image_sliderEvent);
         addYourPet = view.findViewById(R.id.TvAddYourPet);

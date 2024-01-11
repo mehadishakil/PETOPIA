@@ -2,12 +2,11 @@ package com.example.petopia.controller;
 
 import android.content.Context;
 import com.example.petopia.Observer.DataObserver;
-import com.example.petopia.adapter.PetAdapter;
 import com.example.petopia.model.pojo.Event;
 import com.example.petopia.model.pojo.UserID;
 import com.example.petopia.model.pojo.YourPet;
 import com.example.petopia.model.repository.Repository;
-import com.example.petopia.view.IFragmentHomeView;
+import com.example.petopia.view.IFragmentHome;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,13 +19,13 @@ public class FragmentHomeController implements IFragmentHomeController {
 
 
     private List<DataObserver> observers = new ArrayList<>();
-    IFragmentHomeView fragmentHomeView;
+    IFragmentHome fragmentHomeView;
     Context context;
     Repository repository;
     private List<Event> eventList = new ArrayList<>();
     private List<YourPet> petList = new ArrayList<>();
 
-    public FragmentHomeController(IFragmentHomeView FragmentHomeView, Context context) {
+    public FragmentHomeController(IFragmentHome FragmentHomeView, Context context) {
         this.fragmentHomeView = FragmentHomeView;
         this.context = context;
         this.repository = new Repository();

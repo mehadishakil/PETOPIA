@@ -3,14 +3,9 @@ package com.example.petopia.controller;
 import android.util.Log;
 
 import com.example.petopia.model.pojo.CompareOTP;
-import com.example.petopia.model.pojo.OtpResponse;
 import com.example.petopia.model.pojo.ServerResponse;
-import com.example.petopia.model.pojo.User;
 import com.example.petopia.model.repository.Repository;
-import com.example.petopia.view.ILogView;
-import com.example.petopia.view.ISignView;
-import com.example.petopia.view.IVerifiyOtpView;
-import com.example.petopia.view.VerifyOtp;
+import com.example.petopia.view.IVerifiyOtp;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -18,11 +13,11 @@ import retrofit2.Response;
 
 public class VerifyOtpController {
 
-    IVerifiyOtpView iVerifiyOtpView;
+    IVerifiyOtp iVerifiyOtp;
     Repository repository;
 
-    public VerifyOtpController(IVerifiyOtpView iVerifiyOtpView) {
-        this.iVerifiyOtpView = iVerifiyOtpView;
+    public VerifyOtpController(IVerifiyOtp iVerifiyOtp) {
+        this.iVerifiyOtp = iVerifiyOtp;
         this.repository = new Repository();
     }
 
@@ -36,18 +31,18 @@ public class VerifyOtpController {
                 if (response.isSuccessful()) {
                     ServerResponse serverResponse = response.body();
                     if (serverResponse != null && "otp sent".equals(serverResponse.getMessage())) {
-                        iVerifiyOtpView.OnSuccess(serverResponse.getMessage().toString());
+                        iVerifiyOtp.OnSuccess(serverResponse.getMessage().toString());
                     } else {
-                        iVerifiyOtpView.OnFailed("Otp does not matched");
+                        iVerifiyOtp.OnFailed("Otp does not matched");
                     }
                 } else {
-                    iVerifiyOtpView.OnFailed("HTTP Error: " + response.code());
+                    iVerifiyOtp.OnFailed("HTTP Error: " + response.code());
                 }
             }
 
             @Override
             public void onFailure(Call<ServerResponse> call, Throwable t) {
-                iVerifiyOtpView.OnFailed("Exception: " + t.getMessage());
+                iVerifiyOtp.OnFailed("Exception: " + t.getMessage());
                 Log.d("tag", t.getMessage());
             }
         });

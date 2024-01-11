@@ -10,8 +10,9 @@ import android.view.ViewGroup;
 
 import com.example.petopia.R;
 
-public class FragmentShop extends Fragment {
+public class FragmentShop extends Fragment implements IFragmentShop{
 
+    View view;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,11 @@ public class FragmentShop extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_shop, container, false);
+        view = inflater.inflate(R.layout.fragment_shop, container, false);
+
+
+
+
+        return view;
     }
 }

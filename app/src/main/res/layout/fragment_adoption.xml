@@ -73,8 +73,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/RvAdoptionCategoryID"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_margin="9dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ShopToolbarID" />
@@ -84,13 +84,24 @@
             android:id="@+id/RvPetAdoptionID"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_margin="10dp"
+            android:layout_margin="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/RvAdoptionCategoryID" />
 
-
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floating_action_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            app:srcCompat="@drawable/ic_add"
+            android:layout_margin="16dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="32dp"
+            android:contentDescription="Add pet for adoption"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
 
 

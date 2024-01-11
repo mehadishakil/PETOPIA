@@ -15,7 +15,7 @@ import android.widget.Toast;
 import com.example.petopia.R;
 import com.example.petopia.controller.VerifyOtpController;
 
-public class VerifyOtp extends AppCompatActivity implements IVerifiyOtpView {
+public class VerifyOtp extends AppCompatActivity implements IVerifiyOtp {
 
     private EditText etDigit1, etDigit2, etDigit3, etDigit4;
     private Button btnSubmitOTP;
