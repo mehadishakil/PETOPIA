@@ -1,5 +1,6 @@
 package com.example.petopia.model.repository;
 
+import com.example.petopia.model.pojo.Article;
 import com.example.petopia.model.pojo.CompareOTP;
 import com.example.petopia.model.pojo.Event;
 import com.example.petopia.model.pojo.OtpResponse;
@@ -10,6 +11,7 @@ import com.example.petopia.model.pojo.UserID;
 import com.example.petopia.model.pojo.YourPet;
 import com.example.petopia.networking.ApiService;
 import com.example.petopia.networking.RetrofitClient;
+import com.example.petopia.view.UploadArticle;
 
 import java.util.List;
 
@@ -55,6 +57,10 @@ public class Repository {
     }
 
 
+    public void addArticle(Article article, Callback<ServerResponse>callback){
+        Call<ServerResponse> call = apiService.uploadArticle(article);
+        call.enqueue(callback);
+    }
 
 
 }

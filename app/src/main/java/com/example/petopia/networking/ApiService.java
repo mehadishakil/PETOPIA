@@ -1,6 +1,7 @@
 package com.example.petopia.networking;
 
 
+import com.example.petopia.model.pojo.Article;
 import com.example.petopia.model.pojo.CompareOTP;
 import com.example.petopia.model.pojo.OtpResponse;
 import com.example.petopia.model.pojo.ServerResponse;
@@ -9,6 +10,8 @@ import com.example.petopia.model.pojo.ResponseUser;
 import com.example.petopia.model.pojo.Event;
 import com.example.petopia.model.pojo.UserID;
 import com.example.petopia.model.pojo.YourPet;
+import com.example.petopia.view.UploadArticle;
+
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -35,5 +38,8 @@ public interface ApiService {
 
     @POST("signup.php")
     Call<ServerResponse> confirmAccount(@Body CompareOTP compareOTP);
+
+    @POST("article.php")
+    Call<ServerResponse> uploadArticle(@Body Article article);
 
 }

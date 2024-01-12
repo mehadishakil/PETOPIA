@@ -56,8 +56,8 @@ public class AddYourPet extends AppCompatActivity implements AdapterView.OnItemS
         btnUploadImage = findViewById(R.id.BtnAddYourPet);
         petImage = findViewById(R.id.PetImage);
         radioGroup = findViewById(R.id.radioGroupGender);
-        name = findViewById(R.id.editTextPetName);
-        age = findViewById(R.id.editTextAge);
+        name = findViewById(R.id.articleTitle);
+        age = findViewById(R.id.articleContent);
         weight = findViewById(R.id.editTextWeight);
 
 

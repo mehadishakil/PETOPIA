@@ -43,7 +43,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/editTextPetName"
+                android:id="@+id/articleTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -65,7 +65,7 @@
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextPetName">
+                app:layout_constraintTop_toBottomOf="@+id/articleTitle">
 
                 <RadioButton
                     android:id="@+id/radioButtonMale"
@@ -82,7 +82,7 @@
             </RadioGroup>
 
             <EditText
-                android:id="@+id/editTextAge"
+                android:id="@+id/articleContent"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -107,7 +107,7 @@
                 android:minHeight="48dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextAge" />
+                app:layout_constraintTop_toBottomOf="@+id/articleContent" />
 
             <ImageView
                 android:id="@+id/PetImage"
