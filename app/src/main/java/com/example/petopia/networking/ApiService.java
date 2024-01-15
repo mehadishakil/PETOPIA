@@ -39,7 +39,7 @@ public interface ApiService {
     @POST("signup.php")
     Call<ServerResponse> confirmAccount(@Body CompareOTP compareOTP);
 
-    @POST("article.php")
+    @POST("add_article.php")
     Call<ServerResponse> uploadArticle(@Body Article article);
 
 }

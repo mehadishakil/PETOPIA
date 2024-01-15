@@ -3,6 +3,7 @@ package com.example.petopia.view
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.health.connect.datatypes.units.Length
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -17,20 +18,23 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.petopia.R
+import com.example.petopia.controller.UploadArticleController
 import java.io.ByteArrayOutputStream
 import java.io.FileNotFoundException
 
 class UploadArticle : AppCompatActivity() {
 
     var selectedUri: Uri? = null
-    var bitmap: Bitmap? = null
-    var imageView: ImageView? = null
-    var title: EditText? = null;
-    var content: EditText? = null
-    var encodeImage: String? = null
-    var chooseImg : Button? = null
-    var submit: Button? = null
-
+    lateinit var bitmap: Bitmap
+    lateinit var imageView: ImageView
+    lateinit var title: EditText
+    lateinit var content: EditText
+    var encodeImage: String = ""
+    lateinit var chooseImg : Button
+    lateinit var submit: Button
+    lateinit var uploadArticleController : UploadArticleController
+    lateinit var strTitle : String
+    lateinit var strContent : String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -41,6 +45,7 @@ class UploadArticle : AppCompatActivity() {
             insets
         }
 
+        uploadArticleController = UploadArticleController(this)
         imageView = findViewById(R.id.articleImage)
         title = findViewById(R.id.articleTitle)
         content = findViewById(R.id.articleContent)
@@ -53,6 +58,17 @@ class UploadArticle : AppCompatActivity() {
         }
 
         submit?.setOnClickListener {
+            try {
+                strTitle = title.text.toString()
+                strContent = content.text.toString()
+                if(encodeImage != null){
+                    uploadArticleController.onAddArticle(strTitle, strContent, encodeImage)
+                }else{
+                    Toast.makeText(this, "Please select an image", Toast.LENGTH_SHORT).show()
+                }
+            }catch (e : Exception){
+                Toast.makeText(this, "Error: $e", Toast.LENGTH_SHORT).show()
+            }
 
         }
 
