@@ -62,5 +62,10 @@ public class Repository {
         call.enqueue(callback);
     }
 
+    public void getArticles(Callback<List<Article>> callback) {
+        Call<List<Article>> call = apiService.getArticles();
+        call.enqueue(callback);
+    }
+
 
 }

@@ -30,6 +30,9 @@ public interface ApiService {
     @GET("events.php")
     Call<List<Event>> getEvents();
 
+    @GET("get_articles.php")
+    Call<List<Article>> getArticles();
+
     @POST("add_your_pet.php")
     Call<ServerResponse> addYourPet(@Body YourPet yourPet);
 

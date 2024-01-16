@@ -19,4 +19,6 @@ public interface IFragmentHomeController {
     void notifyObservers();
 
     void setData(List<YourPet> yourPets);
+
+    void onGetArticle();
 }

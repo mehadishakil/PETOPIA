@@ -20,10 +20,12 @@ import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.petopia.R;
+import com.example.petopia.adapter.ArticleAdapter;
 import com.example.petopia.adapter.PetAdapter;
 import com.example.petopia.adapter.ServiceAdapter;
 import com.example.petopia.controller.FragmentHomeController;
 import com.example.petopia.controller.IFragmentHomeController;
+import com.example.petopia.model.pojo.Article;
 import com.example.petopia.model.pojo.Event;
 import com.example.petopia.model.pojo.Services;
 import com.example.petopia.model.pojo.YourPet;
@@ -37,7 +39,7 @@ public class FragmentHome extends Fragment implements IFragmentHome {
     private ImageSlider imageSlider;
     TextView addYourPet;
     IFragmentHomeController fragmentHomeController;
-    RecyclerView rvYourPet, rvServices;
+    RecyclerView rvYourPet, rvServices, rvArticle;
     PetAdapter petAdapter;
     List<YourPet> petList = new ArrayList<>();
     View view;
@@ -48,8 +50,6 @@ public class FragmentHome extends Fragment implements IFragmentHome {
     }
 
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_home, container, false);
@@ -58,6 +58,7 @@ public class FragmentHome extends Fragment implements IFragmentHome {
         addYourPet = view.findViewById(R.id.TvAddYourPet);
         rvYourPet = view.findViewById(R.id.RvYourPets);
         rvServices = view.findViewById(R.id.RvServiceID);
+        rvArticle = view.findViewById(R.id.RvArticleID);
 
         fragmentHomeController = new FragmentHomeController(this, getContext());
 
@@ -65,11 +66,12 @@ public class FragmentHome extends Fragment implements IFragmentHome {
 
         try {
             SharedPreferences sharedPreferences = getContext().getSharedPreferences("MyPrefs", MODE_PRIVATE);
-            String userID =  sharedPreferences.getString("user_id", "");
+            String userID = sharedPreferences.getString("user_id", "");
             fragmentHomeController.onGetEvents();
             fragmentHomeController.onGetYourPet(userID);
-        }catch (Exception e){
-            Toast.makeText(getContext(), ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+            fragmentHomeController.onGetArticle();
+        } catch (Exception e) {
+            Toast.makeText(getContext(), "" + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
 
@@ -83,7 +85,7 @@ public class FragmentHome extends Fragment implements IFragmentHome {
         return view;
     }
 
-    private void slideImage(ArrayList<SlideModel> imageList){
+    private void slideImage(ArrayList<SlideModel> imageList) {
         imageSlider.setImageList(imageList);
     }
 
@@ -92,7 +94,7 @@ public class FragmentHome extends Fragment implements IFragmentHome {
     public void onGetEvents(List<Event> eventList) {
         ArrayList<SlideModel> imageList = new ArrayList<>();
         for (Event event : eventList) {
-            String imageUrl = "https://petopia-pet.000webhostapp.com/images/"+event.getImage();
+            String imageUrl = "https://petopia-pet.000webhostapp.com/images/" + event.getImage();
             imageList.add(new SlideModel(imageUrl, ScaleTypes.CENTER_CROP));
         }
         slideImage(imageList);
@@ -111,7 +113,7 @@ public class FragmentHome extends Fragment implements IFragmentHome {
 
     @Override
     public void onGetYourPetSuccess(List<YourPet> yourPetList) {
-        if(yourPetList.size() == 0){
+        if (yourPetList.size() == 0) {
             yourPetList.add(new YourPet("", "add", "", "", "", "", ""));
         }
         rvYourPet.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
@@ -120,7 +122,7 @@ public class FragmentHome extends Fragment implements IFragmentHome {
         fragmentHomeController.addObserver(petAdapter);
     }
 
-    public void showServices(){
+    public void showServices() {
         Services[] services = {
                 new Services("Grooming", R.drawable.ic_grooming),
                 new Services("Veterinary", R.drawable.ic_veterinary),
@@ -128,10 +130,23 @@ public class FragmentHome extends Fragment implements IFragmentHome {
                 // Add more services as needed
         };
         rvServices.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        ServiceAdapter serviceAdapter= new ServiceAdapter(Arrays.asList(services));
+        ServiceAdapter serviceAdapter = new ServiceAdapter(Arrays.asList(services));
         rvServices.setAdapter(serviceAdapter);
     }
 
+    @Override
+    public void onGetArticleError(String message) {
+        Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void OnGetArticleSuccess(List<Article> articles) {
+        if (articles.size() != 0) {
+            rvArticle.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+            ArticleAdapter articleAdapter= new ArticleAdapter(articles, getContext());
+            rvArticle.setAdapter(articleAdapter);
+        }
+    }
 
 
     @Override

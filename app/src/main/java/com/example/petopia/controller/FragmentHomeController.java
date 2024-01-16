@@ -2,6 +2,7 @@ package com.example.petopia.controller;
 
 import android.content.Context;
 import com.example.petopia.Observer.DataObserver;
+import com.example.petopia.model.pojo.Article;
 import com.example.petopia.model.pojo.Event;
 import com.example.petopia.model.pojo.UserID;
 import com.example.petopia.model.pojo.YourPet;
@@ -24,6 +25,7 @@ public class FragmentHomeController implements IFragmentHomeController {
     Repository repository;
     private List<Event> eventList = new ArrayList<>();
     private List<YourPet> petList = new ArrayList<>();
+    private List<Article> articleList = new ArrayList<>();
 
     public FragmentHomeController(IFragmentHome FragmentHomeView, Context context) {
         this.fragmentHomeView = FragmentHomeView;
@@ -85,10 +87,39 @@ public class FragmentHomeController implements IFragmentHomeController {
         }
     }
 
+
+
+    @Override
+    public void onGetArticle() {
+        try {
+            repository.getArticles(new Callback<List<Article>>() {
+                @Override
+                public void onResponse(Call<List<Article>> call, Response<List<Article>> response) {
+                    if (response.isSuccessful() && response.body() != null) {
+                        articleList = response.body();
+                        fragmentHomeView.OnGetArticleSuccess(articleList);
+                    } else {
+                        fragmentHomeView.onGetArticleError("Error: " + response.message());
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<List<Article>> call, Throwable t) {
+                    fragmentHomeView.onGetArticleError("Exception: " + t.getMessage());
+                }
+            });
+        } catch (Exception e) {
+            fragmentHomeView.onGetArticleError("Exception: " + e.getMessage());
+        }
+    }
+
+
+
     public void setData(List<YourPet> yourPets) {
         this.petList = yourPets;
         notifyObservers();
     }
+
 
 
     @Override
