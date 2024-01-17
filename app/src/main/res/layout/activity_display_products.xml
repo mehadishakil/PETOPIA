@@ -61,7 +61,7 @@
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/nunito_sans_bold"
-                android:text="Barcelona"
+                android:text="Cat Food"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
