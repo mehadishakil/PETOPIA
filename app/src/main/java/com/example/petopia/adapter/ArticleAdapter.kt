@@ -32,7 +32,7 @@ class ArticleAdapter(private val article: List<Article>, val context : Context) 
     override fun onBindViewHolder(holder: ArticleAdapter.ArticleViewHolder, position: Int) {
 
         val currentArticle = article[position]
-        holder.title.text = currentArticle.imageStore
+        holder.title.text = currentArticle.title
         holder.content.text = currentArticle.content
         val imageUrl = "https://petopia-pet.000webhostapp.com/article_image/" + currentArticle.imageStore
         Glide.with(context)

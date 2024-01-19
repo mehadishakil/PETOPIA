@@ -4,6 +4,7 @@ import com.example.petopia.model.pojo.Article;
 import com.example.petopia.model.pojo.CompareOTP;
 import com.example.petopia.model.pojo.Event;
 import com.example.petopia.model.pojo.OtpResponse;
+import com.example.petopia.model.pojo.PetAdoption;
 import com.example.petopia.model.pojo.ResponseUser;
 import com.example.petopia.model.pojo.ServerResponse;
 import com.example.petopia.model.pojo.User;
@@ -64,6 +65,11 @@ public class Repository {
 
     public void getArticles(Callback<List<Article>> callback) {
         Call<List<Article>> call = apiService.getArticles();
+        call.enqueue(callback);
+    }
+
+    public void addAdoption(PetAdoption petAdoption, Callback<ServerResponse>callback){
+        Call<ServerResponse> call = apiService.addAdoption(petAdoption);
         call.enqueue(callback);
     }
 
