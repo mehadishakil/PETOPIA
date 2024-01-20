@@ -13,7 +13,6 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
-import android.widget.RadioButton
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -25,7 +24,7 @@ import com.example.petopia.controller.AddAdoptionController
 import java.io.ByteArrayOutputStream
 import java.io.FileNotFoundException
 
-class AddAdoption : AppCompatActivity() {
+class AddAdoption : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     var selectedUri: Uri? = null
     lateinit var bitmap: Bitmap
@@ -86,13 +85,20 @@ class AddAdoption : AppCompatActivity() {
         }
 
 
-        val adapter = ArrayAdapter.createFromResource(
+        val adapter1 = ArrayAdapter.createFromResource(
             this,
             R.array.PetTypes, android.R.layout.simple_spinner_item
         )
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        sCategory.setAdapter(adapter)
+        val adapter2 = ArrayAdapter.createFromResource(
+            this,
+            R.array.Gender, android.R.layout.simple_spinner_item
+        )
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        sCategory.setAdapter(adapter1)
         sCategory.setOnItemSelectedListener(this)
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        sGender.setAdapter(adapter2)
+        sGender.setOnItemSelectedListener(this)
 
 
 
@@ -108,6 +114,8 @@ class AddAdoption : AppCompatActivity() {
                 description = petDescription.text.toString()
                 owner = petOwner.text.toString()
                 contact = contactInfo.text.toString()
+
+                // Toast.makeText(this, name+" "+breed+" "+age+" "+weight+" "+location+" "+description+" "+owner+" "+contact+" "+category+" "+gender, Toast.LENGTH_SHORT).show()
 
 
                 if(image != null){
@@ -170,25 +178,23 @@ class AddAdoption : AppCompatActivity() {
     }
 
 
-    override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-        petType = parent.getItemAtPosition(position).toString()
-        //Toast.makeText(parent.getContext(), petType, Toast.LENGTH_LONG).show();
+    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        when (parent?.id) {
+            R.id.SpinnerPetType -> {
+                category = parent.getItemAtPosition(position).toString()
+            }
+            R.id.SpinnerPetGender -> {
+                gender = parent.getItemAtPosition(position).toString()
+            }
+        }
     }
 
-    override fun onNothingSelected(parent: AdapterView<*>) {
-        petType = parent.getItemAtPosition(0).toString()
+    override fun onNothingSelected(parent: AdapterView<*>?) {
+        if (parent != null) {
+            category = parent.getItemAtPosition(0).toString()
+            gender = parent.getItemAtPosition(0).toString()
+        }
     }
-
-    fun checkButton() {
-        val radioId: Int = radioGroup.getCheckedRadioButtonId()
-        radioButton = findViewById<RadioButton>(radioId)
-        gender = radioButton.getText().toString()
-
-        //Toast.makeText(getApplication(), gender, Toast.LENGTH_SHORT).show();
-    }
-
-
-
 
 
 
@@ -212,3 +218,4 @@ class AddAdoption : AppCompatActivity() {
 
 
 }
+

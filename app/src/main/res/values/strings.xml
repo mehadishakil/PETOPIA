@@ -9,4 +9,9 @@
         <item>Rabbits</item>
         <item>Hamster</item>
     </string-array>
+
+    <string-array name="Gender">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
 </resources>
