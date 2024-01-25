@@ -9,14 +9,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.petopia.R;
+import com.example.petopia.adapter.PetAdapter;
 import com.example.petopia.adapter.PetAdoptionCatgAdapter;
 import com.example.petopia.controller.FragmentAdoptionController;
 import com.example.petopia.controller.IFragmentAdoptionController;
 import com.example.petopia.model.pojo.AdoptPet;
+import com.example.petopia.model.pojo.PetAdoption;
+import com.example.petopia.model.pojo.YourPet;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class FragmentAdoptions extends Fragment implements IFragmentAdoptions {
 
@@ -57,5 +62,19 @@ public class FragmentAdoptions extends Fragment implements IFragmentAdoptions {
         rvAdoptPetCatg.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         PetAdoptionCatgAdapter petAdoptionCatgAdapter = new PetAdoptionCatgAdapter(Arrays.asList(adoptPets));
         rvAdoptPetCatg.setAdapter(petAdoptionCatgAdapter);
+    }
+
+
+    @Override
+    public void onError(String message) {
+        Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onSuccess(List<PetAdoption> petList) {
+//        rvYourPet.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+//        petAdapter = new PetAdapter(getContext());
+//        rvYourPet.setAdapter(petAdapter);
+//        fragmentHomeController.addObserver(petAdapter);
     }
 }

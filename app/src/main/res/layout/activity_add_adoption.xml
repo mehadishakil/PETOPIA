@@ -9,7 +9,11 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -31,8 +35,8 @@
                 android:id="@+id/editTextPetName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:layout_marginLeft="@dimen/_16sdp"
+                android:layout_marginTop="16dp"
                 android:layout_marginRight="@dimen/_16sdp"
                 android:hint="Pet Name"
                 android:inputType="text"
@@ -66,8 +70,8 @@
                 android:id="@+id/EtPetBreed"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:layout_marginLeft="@dimen/_16sdp"
+                android:layout_marginTop="16dp"
                 android:layout_marginRight="@dimen/_16sdp"
                 android:hint="Pet Breed"
                 android:inputType="text"
@@ -99,29 +103,28 @@
                 app:layout_constraintTop_toBottomOf="@+id/EtPetBreed" />
 
 
-
-<!--            <EditText-->
-<!--                android:id="@+id/editTextPetGender"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="8dp"-->
-<!--                android:layout_marginLeft="@dimen/_16sdp"-->
-<!--                android:layout_marginRight="@dimen/_16sdp"-->
-<!--                android:hint="Pet Gender"-->
-<!--                android:inputType="text"-->
-<!--                android:minHeight="48dp"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/EtPetBreed" />-->
+            <!--            <EditText-->
+            <!--                android:id="@+id/editTextPetGender"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="8dp"-->
+            <!--                android:layout_marginLeft="@dimen/_16sdp"-->
+            <!--                android:layout_marginRight="@dimen/_16sdp"-->
+            <!--                android:hint="Pet Gender"-->
+            <!--                android:inputType="text"-->
+            <!--                android:minHeight="48dp"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/EtPetBreed" />-->
 
             <EditText
                 android:id="@+id/editTextPetAge"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:layout_marginLeft="@dimen/_16sdp"
+                android:layout_marginTop="8dp"
                 android:layout_marginRight="@dimen/_16sdp"
-                android:hint="Pet Age"
+                android:hint="Pet Age (month)"
                 android:inputType="number"
                 android:minHeight="48dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -132,10 +135,10 @@
                 android:id="@+id/editTextPetWeight"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:layout_marginLeft="@dimen/_16sdp"
+                android:layout_marginTop="8dp"
                 android:layout_marginRight="@dimen/_16sdp"
-                android:hint="Pet Weight"
+                android:hint="Pet Weight in (mg)"
                 android:inputType="numberDecimal"
                 android:minHeight="48dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -149,8 +152,8 @@
                 android:id="@+id/editTextPetLocation"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:layout_marginLeft="@dimen/_16sdp"
+                android:layout_marginTop="8dp"
                 android:layout_marginRight="@dimen/_16sdp"
                 android:hint="Pet Location"
                 android:inputType="text"
@@ -163,8 +166,8 @@
                 android:id="@+id/editTextPetDescription"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:layout_marginLeft="@dimen/_16sdp"
+                android:layout_marginTop="8dp"
                 android:layout_marginRight="@dimen/_16sdp"
                 android:hint="Pet Description"
                 android:inputType="textMultiLine"
@@ -177,8 +180,8 @@
                 android:id="@+id/editTextOwnerName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:layout_marginLeft="@dimen/_16sdp"
+                android:layout_marginTop="8dp"
                 android:layout_marginRight="@dimen/_16sdp"
                 android:hint="Owner Name"
                 android:inputType="text"
@@ -191,11 +194,11 @@
                 android:id="@+id/editTextContactInfo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:layout_marginLeft="@dimen/_16sdp"
+                android:layout_marginTop="8dp"
                 android:layout_marginRight="@dimen/_16sdp"
                 android:hint="Contact Info"
-                android:inputType="phone"
+                android:inputType="text"
                 android:minHeight="48dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

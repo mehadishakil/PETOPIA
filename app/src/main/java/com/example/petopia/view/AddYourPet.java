@@ -91,8 +91,6 @@ public class AddYourPet extends AppCompatActivity implements AdapterView.OnItemS
                 addYourPetController.onAddYourPet(userID, petName, petType, petAge, petWeight, gender, encodeImage);
             }
         });
-
-
     }
 
 

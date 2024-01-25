@@ -3,7 +3,9 @@ package com.example.petopia.view;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -93,6 +95,12 @@ public class VerifyOtp extends AppCompatActivity implements IVerifiyOtp {
     @Override
     public void OnSuccess(@NonNull String message) {
         Toast.makeText(this, "OTP Verified"+message, Toast.LENGTH_SHORT).show();
+        SharedPreferences sharedPrefs = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPrefs.edit();
+        editor.putBoolean("isLoggedIn", true);
+        editor.apply();
+
+        navigateToMainActivity();
     }
 
     @Override
@@ -100,12 +108,20 @@ public class VerifyOtp extends AppCompatActivity implements IVerifiyOtp {
         Toast.makeText(this, "Wrong OTP "+message, Toast.LENGTH_SHORT).show();
     }
 
+    private void navigateToMainActivity() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+
     private void setEditTextListeners() {
         etDigit1.addTextChangedListener((TextWatcher) new GenericTextWatcher(etDigit1, etDigit2));
         etDigit2.addTextChangedListener(new GenericTextWatcher(etDigit2, etDigit3));
         etDigit3.addTextChangedListener(new GenericTextWatcher(etDigit3, etDigit4));
         etDigit4.addTextChangedListener(new GenericTextWatcher(etDigit4, null));
     }
+
 
     private class GenericTextWatcher implements TextWatcher {
         private View currentView, nextView;

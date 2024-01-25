@@ -72,6 +72,11 @@ public class Signup extends AppCompatActivity implements ISignUp {
     @Override
     public void onSignupSuccess(String message, String otp, String user_id) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+
+        SharedPreferences.Editor editor = sharedPrefs.edit();
+        editor.putString("user_id", user_id);
+        editor.apply();
+
         Intent intent = new Intent(this, VerifyOtp.class);
         intent.putExtra("OTP", otp);
         intent.putExtra("user_id", user_id);

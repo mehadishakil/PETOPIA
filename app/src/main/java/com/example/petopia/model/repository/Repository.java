@@ -73,5 +73,10 @@ public class Repository {
         call.enqueue(callback);
     }
 
+    public void getAdoptPet(Callback<List<PetAdoption>> callback) {
+        Call<List<PetAdoption>> call = apiService.getAdoptPet();
+        call.enqueue(callback);
+    }
+
 
 }

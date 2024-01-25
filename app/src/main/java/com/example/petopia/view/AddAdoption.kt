@@ -1,6 +1,7 @@
 package com.example.petopia.view
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
@@ -53,6 +54,7 @@ class AddAdoption : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     lateinit var owner : String
     lateinit var contact : String
     lateinit var addAdoptionController: AddAdoptionController
+    lateinit var sharedPrefs : SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -115,7 +117,9 @@ class AddAdoption : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                 owner = petOwner.text.toString()
                 contact = contactInfo.text.toString()
 
-                // Toast.makeText(this, name+" "+breed+" "+age+" "+weight+" "+location+" "+description+" "+owner+" "+contact+" "+category+" "+gender, Toast.LENGTH_SHORT).show()
+
+                sharedPrefs = getSharedPreferences("MyPrefs", MODE_PRIVATE)
+                owner = sharedPrefs.getString("user_id", petOwner.text.toString()) ?: ""
 
 
                 if(image != null){

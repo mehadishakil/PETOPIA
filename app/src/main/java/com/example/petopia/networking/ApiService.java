@@ -34,6 +34,10 @@ public interface ApiService {
     @GET("get_articles.php")
     Call<List<Article>> getArticles();
 
+    @GET("get_articles.php")
+    Call<List<PetAdoption>> getAdoptPet();
+
+
     @POST("add_your_pet.php")
     Call<ServerResponse> addYourPet(@Body YourPet yourPet);
 
@@ -46,7 +50,7 @@ public interface ApiService {
     @POST("add_article.php")
     Call<ServerResponse> uploadArticle(@Body Article article);
 
-    @POST("add_pet_adoption.php")
+    @POST("add_adoption.php")
     Call<ServerResponse> addAdoption(@Body PetAdoption petAdoption);
 
 }
