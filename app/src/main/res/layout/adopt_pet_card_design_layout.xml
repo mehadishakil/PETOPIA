@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/AdoptPetCardDesign"
-    android:layout_width="@dimen/_140sdp"
+    android:layout_width="@dimen/_120sdp"
     android:layout_height="@dimen/_146sdp"
     android:layout_margin="8dp">
 
@@ -27,7 +27,7 @@
                 android:id="@+id/petAdopImg"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_100sdp"
-                android:scaleType="fitCenter"
+                android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -40,27 +40,28 @@
                 android:layout_height="@dimen/_20sdp"
                 android:layout_marginBottom="@dimen/_2sdp"
                 android:text="Simba"
+                android:gravity="center"
                 android:textColor="#3F3F3F"
                 android:textStyle="bold"
+                android:fontFamily="@font/raleway_bold"
                 android:layout_marginStart="@dimen/_5sdp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/petAdopImg"
-                tools:textSize="16sp" />
+                tools:textSize="18sp" />
 
             <TextView
                 android:id="@+id/petAdoptCategory"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_20sdp"
                 android:layout_marginStart="16dp"
-                android:layout_marginBottom="@dimen/_2sdp"
-                android:fontFamily="@font/jost_semibold"
+                android:fontFamily="@font/raleway_semibold"
                 android:gravity="center"
                 android:text="(Chausie)"
                 android:textColor="#888888"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/petAdoptName"
                 app:layout_constraintTop_toBottomOf="@+id/petAdopImg"
-                tools:textSize="12sp" />
+                tools:textSize="14sp" />
 
 
             <LinearLayout

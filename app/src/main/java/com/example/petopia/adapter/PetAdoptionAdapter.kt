@@ -38,11 +38,10 @@ class PetAdoptionAdapter(private val AdoptPet: List<PetAdoption>, val context: C
         holder.category.text = presentPet.category
         holder.genderAge.text = presentPet.gender+", "+presentPet.age+" mo"
         val imageUrl =
-            "https://petopia-pet.000webhostapp.com/article_image/" + presentPet.image
+            "https://petopia-pet.000webhostapp.com/PetAdoptionImage/" + presentPet.image
         Glide.with(context)
             .load(imageUrl)
             .placeholder(R.drawable.loading_image)
-            .error(R.drawable.error_image)
             .into(holder.image)
     }
 

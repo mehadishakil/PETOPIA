@@ -57,9 +57,7 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> i
         Glide.with(context)
                 .load(imageUrl)
                 .placeholder(R.drawable.loading_image)
-                .error(R.drawable.error_image)
                 .into(holder.yourPetImage);
-
         holder.yourPetName.setText(pet.getPetName());
     }
 

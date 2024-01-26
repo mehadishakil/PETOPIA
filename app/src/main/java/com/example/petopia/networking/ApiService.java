@@ -34,7 +34,7 @@ public interface ApiService {
     @GET("get_articles.php")
     Call<List<Article>> getArticles();
 
-    @GET("get_articles.php")
+    @GET("get_adoptions.php")
     Call<List<PetAdoption>> getAdoptPet();
 
 
