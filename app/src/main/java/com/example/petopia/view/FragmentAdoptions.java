@@ -1,8 +1,14 @@
 package com.example.petopia.view;
 
+import static android.view.View.GONE;
+
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,6 +18,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.petopia.R;
@@ -33,6 +42,8 @@ public class FragmentAdoptions extends Fragment implements IFragmentAdoptions {
     IFragmentAdoptionController fragmentAdoptionController;
     PetAdoptionAdapter petAdoptionAdapter;
     private FloatingActionButton floatingActionButton;
+    private SearchView searchView;
+    ConstraintLayout locationLayout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,6 +58,37 @@ public class FragmentAdoptions extends Fragment implements IFragmentAdoptions {
         rvAdoptPetCatg = view.findViewById(R.id.RvAdoptionCategoryID);
         rvPetAdoption = view.findViewById(R.id.RvPetAdoptionID);
         floatingActionButton = view.findViewById(R.id.floating_action_button);
+        searchView = view.findViewById(R.id.search_view);
+        locationLayout = view.findViewById(R.id.idLocationLayout);
+
+
+        searchView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (searchView.getVisibility() == GONE) {
+                    // Expand the search view
+                    searchView.setVisibility(View.VISIBLE);
+                    locationLayout.setVisibility(GONE);
+                    ObjectAnimator anim = ObjectAnimator.ofFloat(searchView, "translationX", -200f, 0f);
+                    anim.setDuration(500);
+                    anim.start();
+                } else {
+                    // Collapse the search view
+                    ObjectAnimator anim = ObjectAnimator.ofFloat(searchView, "translationX", 0f, -200f);
+                    anim.setDuration(500);
+                    anim.addListener(new AnimatorListenerAdapter() {
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            super.onAnimationEnd(animation);
+                            searchView.setVisibility(GONE);
+                        }
+                    });
+                    anim.start();
+                }
+            }
+        });
+
 
 
         fragmentAdoptionController = new FragmentAdoptionController(this, getContext());
@@ -59,9 +101,12 @@ public class FragmentAdoptions extends Fragment implements IFragmentAdoptions {
                 startActivity(intent);
             }
         });
-
-
         return view;
+
+
+
+
+
     }
 
     private void showAdotionPetCatg() {

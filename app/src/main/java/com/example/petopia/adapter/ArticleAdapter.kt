@@ -1,15 +1,21 @@
 package com.example.petopia.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.view.menu.MenuView.ItemView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.petopia.R
 import com.example.petopia.model.pojo.Article
+import com.example.petopia.view.ReadArticle
+
 
 class ArticleAdapter(private val article: List<Article>, val context : Context) :
     RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder>() {
@@ -18,6 +24,7 @@ class ArticleAdapter(private val article: List<Article>, val context : Context) 
         val title: TextView = itemView.findViewById(R.id.displayArticleTvTitle)
         val content: TextView = itemView.findViewById(R.id.displayArticleTvDate)
         val image: ImageView = itemView.findViewById(R.id.displayIvArticle)
+        val articleLayout : ConstraintLayout = itemView.findViewById(R.id.articleConstraintLayout)
     }
 
     override fun onCreateViewHolder(
@@ -40,6 +47,22 @@ class ArticleAdapter(private val article: List<Article>, val context : Context) 
             .placeholder(R.drawable.loading_image)
             .error(R.drawable.error_image)
             .into(holder.image)
+
+
+        holder.articleLayout.setOnClickListener(View.OnClickListener {
+            try {
+                val intent = Intent(context, ReadArticle::class.java)
+                intent.putExtra("title", currentArticle.title)
+                intent.putExtra("content", currentArticle.content)
+                intent.putExtra("imageData", currentArticle.imageStore)
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                context.startActivity(intent)
+            } catch (e: Exception) {
+                Toast.makeText(context, "" + e, Toast.LENGTH_SHORT).show()
+            }
+        })
+
+
     }
 
     override fun getItemCount(): Int {
