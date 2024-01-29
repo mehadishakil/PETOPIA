@@ -140,7 +140,6 @@ public class FragmentAdoptions extends Fragment implements IFragmentAdoptions {
 
                 int spanCount = 2;
                 rvPetAdoption.setLayoutManager(new GridLayoutManager(getContext(), spanCount));
-
                 petAdoptionAdapter = new PetAdoptionAdapter(petList, getContext());
                 rvPetAdoption.setAdapter(petAdoptionAdapter);
             } else {

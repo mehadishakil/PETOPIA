@@ -93,7 +93,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/id_image">
+                app:layout_constraintTop_toBottomOf="@+id/adoptionPetImage">
 
                 <TextView
                     android:id="@+id/id_title"
@@ -193,7 +193,7 @@
                     app:layout_constraintTop_toTopOf="@id/btn_minus" />
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/adoptPetNameID"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
@@ -210,7 +210,7 @@
 
 
                 <TextView
-                    android:id="@+id/id_description"
+                    android:id="@+id/adoptionPetDetails"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_marginStart="30dp"
@@ -223,7 +223,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@id/id_title"
-                    app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                    app:layout_constraintTop_toBottomOf="@+id/adoptPetNameID" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -233,7 +233,7 @@
     </ScrollView>
 
     <androidx.cardview.widget.CardView
-        android:id="@id/id_addToCartbtn"
+        android:id="@id/addAdoptionPetToCartId"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_45sdp"
         app:cardCornerRadius="@dimen/_20sdp"
