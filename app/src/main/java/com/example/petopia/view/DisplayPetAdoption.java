@@ -1,25 +1,24 @@
 package com.example.petopia.view;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.petopia.R;
-import com.google.android.material.card.MaterialCardView;
 
 public class DisplayPetAdoption extends AppCompatActivity {
 
-    ImageView adoptPetImage, OwnerProfileImage, adoptionPetContact;
+    ImageView adoptPetImage, OwnerProfileImage;
+    Button btnContact;
     TextView adoptPetNameID, adoptPetCategoryID, adoptPetGenderID, adoptionPetAgeID,
             adoptionPetWeightID, adoptionPetLocation, OnwerName, adoptionPetDetails, textView4;
-    AppCompatButton addAdoptionPetToCartId;
+    Button addAdoptionPetToCartId;
     ConstraintLayout petDetails, constraintLayout;
     String name, category, breed, gender, age, weight, location, description, owner, contact, image;
 
@@ -32,7 +31,7 @@ public class DisplayPetAdoption extends AppCompatActivity {
 
         adoptPetImage = findViewById(R.id.adoptionPetImage);
         OwnerProfileImage = findViewById(R.id.OwnerProfileImage);
-        adoptionPetContact = findViewById(R.id.adoptionPetContact);
+        btnContact = findViewById(R.id.adoptionPetContact);
         adoptPetNameID = findViewById(R.id.adoptPetNameID);
         adoptPetCategoryID = findViewById(R.id.adoptPetCategoryID);
         adoptPetGenderID = findViewById(R.id.adoptPetGenderID);
@@ -74,10 +73,10 @@ public class DisplayPetAdoption extends AppCompatActivity {
 
             // Set values to UI elements
             adoptPetNameID.setText(name);
-            adoptPetCategoryID.setText(category);
+            adoptPetCategoryID.setText("("+category+")");
             adoptPetGenderID.setText(gender);
-            adoptionPetAgeID.setText(age);
-            adoptionPetWeightID.setText(weight);
+            adoptionPetAgeID.setText(age+" mo");
+            adoptionPetWeightID.setText(weight + " gm");
             adoptionPetLocation.setText(location);
             OnwerName.setText(owner);
             adoptionPetDetails.setText(description);

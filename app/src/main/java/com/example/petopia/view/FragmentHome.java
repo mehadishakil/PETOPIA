@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -29,6 +30,7 @@ import com.example.petopia.model.pojo.Article;
 import com.example.petopia.model.pojo.Event;
 import com.example.petopia.model.pojo.Services;
 import com.example.petopia.model.pojo.YourPet;
+import com.google.android.material.card.MaterialCardView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -37,12 +39,13 @@ import java.util.List;
 public class FragmentHome extends Fragment implements IFragmentHome {
 
     private ImageSlider imageSlider;
-    TextView addYourPet;
     IFragmentHomeController fragmentHomeController;
     RecyclerView rvYourPet, rvServices, rvArticle;
     PetAdapter petAdapter;
     List<YourPet> petList = new ArrayList<>();
     View view;
+
+    MaterialCardView addYourPetBtn;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,10 +58,10 @@ public class FragmentHome extends Fragment implements IFragmentHome {
         view = inflater.inflate(R.layout.fragment_home, container, false);
 
         imageSlider = view.findViewById(R.id.image_sliderEvent);
-        addYourPet = view.findViewById(R.id.TvAddYourPet);
         rvYourPet = view.findViewById(R.id.RvYourPets);
         rvServices = view.findViewById(R.id.RvServiceID);
         rvArticle = view.findViewById(R.id.RvArticleID);
+        addYourPetBtn = view.findViewById(R.id.addYourPetLayout);
 
         fragmentHomeController = new FragmentHomeController(this, getContext());
 
@@ -75,7 +78,7 @@ public class FragmentHome extends Fragment implements IFragmentHome {
         }
 
 
-        addYourPet.setOnClickListener(new View.OnClickListener() {
+        addYourPetBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), AddYourPet.class);
@@ -114,12 +117,13 @@ public class FragmentHome extends Fragment implements IFragmentHome {
     @Override
     public void onGetYourPetSuccess(List<YourPet> yourPetList) {
         if (yourPetList.size() == 0) {
+            rvYourPet.setVisibility(View.GONE);
             yourPetList.add(new YourPet("", "add", "", "", "", "", ""));
         }
-        rvYourPet.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        petAdapter = new PetAdapter(getContext());
-        rvYourPet.setAdapter(petAdapter);
-        fragmentHomeController.addObserver(petAdapter);
+//        rvYourPet.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+//        petAdapter = new PetAdapter(getContext());
+//        rvYourPet.setAdapter(petAdapter);
+//        fragmentHomeController.addObserver(petAdapter);
     }
 
     public void showServices() {

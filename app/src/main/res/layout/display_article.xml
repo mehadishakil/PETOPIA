@@ -4,13 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:id="@+id/articleConstraintLayout"
-    android:layout_height="@dimen/_90sdp"
-    android:layout_margin="@dimen/_5sdp">
+    android:layout_height="@dimen/_90sdp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/_5sdp"
+        android:layout_margin="@dimen/_2sdp"
         app:cardCornerRadius="@dimen/_10sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
