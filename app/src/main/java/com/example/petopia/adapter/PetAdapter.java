@@ -27,7 +27,7 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> i
 
 
 
-    public PetAdapter(Context context) {
+    public PetAdapter(List<YourPet> petList, Context context) {
         this.petList = petList;
         this.context = context;
         this.inflater = LayoutInflater.from(context);
@@ -42,11 +42,6 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> i
         View itemView = inflater.inflate(R.layout.your_pet_layout, parent, false);
         return new PetViewHolder(itemView);
     }
-
-
-
-
-
 
 
     @Override

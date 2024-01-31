@@ -42,7 +42,6 @@ public class FragmentHome extends Fragment implements IFragmentHome {
     IFragmentHomeController fragmentHomeController;
     RecyclerView rvYourPet, rvServices, rvArticle;
     PetAdapter petAdapter;
-    List<YourPet> petList = new ArrayList<>();
     View view;
 
     MaterialCardView addYourPetBtn;
@@ -118,12 +117,11 @@ public class FragmentHome extends Fragment implements IFragmentHome {
     public void onGetYourPetSuccess(List<YourPet> yourPetList) {
         if (yourPetList.size() == 0) {
             rvYourPet.setVisibility(View.GONE);
-            yourPetList.add(new YourPet("", "add", "", "", "", "", ""));
         }
-//        rvYourPet.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-//        petAdapter = new PetAdapter(getContext());
-//        rvYourPet.setAdapter(petAdapter);
-//        fragmentHomeController.addObserver(petAdapter);
+        rvYourPet.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        petAdapter = new PetAdapter(yourPetList, getContext());
+        rvYourPet.setAdapter(petAdapter);
+        fragmentHomeController.addObserver(petAdapter);
     }
 
     public void showServices() {
