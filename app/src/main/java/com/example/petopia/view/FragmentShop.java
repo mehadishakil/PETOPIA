@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 
 import com.example.petopia.R;
 import com.example.petopia.adapter.PetAdoptionCatgAdapter;
+import com.example.petopia.adapter.ShopCategoryAdapter;
 import com.example.petopia.model.pojo.AdoptPet;
 import com.example.petopia.model.pojo.ShopCategory;
 
@@ -37,7 +38,7 @@ public class FragmentShop extends Fragment implements IFragmentShop{
 
         rvShopCategory = view.findViewById(R.id.recyclerViewShopCategoryID);
 
-
+        displayShopCategory();
 
         return view;
     }
@@ -45,18 +46,18 @@ public class FragmentShop extends Fragment implements IFragmentShop{
 
     private void displayShopCategory() {
         ShopCategory[] shopCategories = {
-          new ShopCategory("Food", R.drawable.pet_food);
-          new ShopCategory("Toys", R.drawable.pet_toys);
-          new ShopCategory("Accessories", R.drawable.pet_accessories);
-          new ShopCategory("Health & Wellness", R.drawable.pet_health_wellness);
-          new ShopCategory("Training", R.drawable.pet_training);
-          new ShopCategory("Housing", R.drawable.pet_housing);
-          new ShopCategory("Pet Care", R.drawable.pet_care);
-          new ShopCategory("Travel", R.drawable.pet_travel);
+          new ShopCategory("Food", R.drawable.pet_food),
+          new ShopCategory("Toys", R.drawable.pet_toys),
+          new ShopCategory("Accessories", R.drawable.pet_accessories),
+          new ShopCategory("Health & Wellness", R.drawable.pet_health_wellness),
+          new ShopCategory("Training", R.drawable.pet_training),
+          new ShopCategory("Housing", R.drawable.pet_housing),
+          new ShopCategory("Pet Care", R.drawable.pet_care),
+          new ShopCategory("Travel", R.drawable.pet_travel),
         };
         rvShopCategory.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        PetAdoptionCatgAdapter petAdoptionCatgAdapter = new PetAdoptionCatgAdapter(shopCategories);
-        rvShopCategory.setAdapter(petAdoptionCatgAdapter);
+        ShopCategoryAdapter shopCategoryAdapter = new ShopCategoryAdapter(asList(shopCategories));
+        rvShopCategory.setAdapter(shopCategoryAdapter);
     }
 
 
