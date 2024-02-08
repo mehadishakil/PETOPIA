@@ -6,25 +6,30 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp">
 
-    <com.google.android.material.card.MaterialCardView
+    <com.google.android.material.circularreveal.cardview.CircularRevealCardView
         android:id="@+id/cardvw"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        app:cardBackgroundColor="#41F4F4F4"
-        app:cardCornerRadius="@dimen/_30sdp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardBackgroundColor="#22F4F4F4"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="1dp"
+        android:focusableInTouchMode="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck">
 
         <ImageView
             android:id="@+id/shopCatgImg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="fitCenter"
             android:padding="@dimen/_6sdp"
+            android:scaleType="fitCenter"
             app:srcCompat="@drawable/pet_food" />
 
-    </com.google.android.material.card.MaterialCardView>
+    </com.google.android.material.circularreveal.cardview.CircularRevealCardView>
 
 
     <TextView

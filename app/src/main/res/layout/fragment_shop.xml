@@ -6,128 +6,137 @@
     android:layout_height="match_parent"
     tools:context=".view.FragmentShop">
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/search_bar"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:hint="Search"
-            app:boxCornerRadiusBottomEnd="20dp"
-            app:boxCornerRadiusBottomStart="20dp"
-            app:boxCornerRadiusTopEnd="20dp"
-            app:boxCornerRadiusTopStart="20dp"
-            app:endIconMode="clear_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:startIconDrawable="@drawable/ic_search">
 
-            <com.google.android.material.textfield.TextInputEditText
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/search_bar"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:hint="Search"
+                app:boxCornerRadiusBottomEnd="20dp"
+                app:boxCornerRadiusBottomStart="20dp"
+                app:boxCornerRadiusTopEnd="20dp"
+                app:boxCornerRadiusTopStart="20dp"
+                app:endIconMode="clear_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:startIconDrawable="@drawable/ic_search">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
-
-        <com.denzcoskun.imageslider.ImageSlider
-            android:id="@+id/ShopImage_slider"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginRight="10dp"
-            app:iss_auto_cycle="true"
-            app:iss_delay="1000"
-            app:iss_period="1000"
-            app:iss_selected_dot="@drawable/default_selected_dot"
-            app:iss_text_align="CENTER"
-            app:iss_unselected_dot="@drawable/default_unselected_dot"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/search_bar"
-            tools:ignore="MissingClass" />
-
-        <TextView
-            android:id="@+id/TVCategories"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginRight="10dp"
-            android:fontFamily="@font/raleway_bold"
-            android:text="Categories"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ShopImage_slider" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewShopCategoryID"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TVCategories" />
-
-        <TextView
-            android:id="@+id/TvPopularItems"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/raleway_bold"
-            android:text="Trending Now"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recyclerViewShopCategoryID" />
+            </com.google.android.material.textfield.TextInputLayout>
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/RvPopularItem"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_100sdp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TvPopularItems" />
+            <com.denzcoskun.imageslider.ImageSlider
+                android:id="@+id/ShopImage_slider"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginRight="10dp"
+                app:iss_auto_cycle="true"
+                app:iss_delay="1000"
+                app:iss_period="1000"
+                app:iss_selected_dot="@drawable/default_selected_dot"
+                app:iss_text_align="CENTER"
+                app:iss_unselected_dot="@drawable/default_unselected_dot"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/search_bar"
+                tools:ignore="MissingClass" />
 
-        <TextView
-            android:id="@+id/TvProducts"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/raleway_bold"
-            android:text="Popular Products"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/RvPopularItem" />
+            <TextView
+                android:id="@+id/TVCategories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="@font/raleway_bold"
+                android:text="Categories"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ShopImage_slider" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewShopCategoryID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TVCategories" />
+
+            <TextView
+                android:id="@+id/TvPopularItems"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/raleway_bold"
+                android:text="Trending Now"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerViewShopCategoryID" />
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/RvShopProducts"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_100sdp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TvProducts" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/RvPopularItem"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TvPopularItems" />
+
+            <TextView
+                android:id="@+id/TvProducts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/raleway_bold"
+                android:text="Popular Products"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/RvPopularItem" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/RvShopProducts"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TvProducts" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+
 
 </FrameLayout>
