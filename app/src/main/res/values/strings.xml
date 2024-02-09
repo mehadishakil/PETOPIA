@@ -14,4 +14,15 @@
         <item>Male</item>
         <item>Female</item>
     </string-array>
+
+    <string-array name="ProductCategory">
+        <item>Food</item>
+        <item>Toys</item>
+        <item>Accessories</item>
+        <item>HealthWellness</item>
+        <item>Training</item>
+        <item>Housing</item>
+        <item>PetCare</item>
+        <item>Travel</item>
+    </string-array>
 </resources>

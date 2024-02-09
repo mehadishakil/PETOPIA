@@ -5,6 +5,7 @@ import com.example.petopia.model.pojo.Article;
 import com.example.petopia.model.pojo.CompareOTP;
 import com.example.petopia.model.pojo.OtpResponse;
 import com.example.petopia.model.pojo.PetAdoption;
+import com.example.petopia.model.pojo.Product;
 import com.example.petopia.model.pojo.ServerResponse;
 import com.example.petopia.model.pojo.User;
 import com.example.petopia.model.pojo.ResponseUser;
@@ -52,5 +53,8 @@ public interface ApiService {
 
     @POST("add_adoption.php")
     Call<ServerResponse> addAdoption(@Body PetAdoption petAdoption);
+
+    @POST("add_products.php")
+    Call<ServerResponse> addProduct(@Body Product product);
 
 }
