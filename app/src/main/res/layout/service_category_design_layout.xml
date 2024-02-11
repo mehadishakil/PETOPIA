@@ -9,7 +9,7 @@
     android:background="@drawable/service_category_cart_background">
 
     <ImageView
-        android:id="@+id/petAdopImg"
+        android:id="@+id/ProductItemImage"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:layout_marginBottom="23dp"

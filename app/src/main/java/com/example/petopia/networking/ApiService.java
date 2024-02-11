@@ -57,4 +57,7 @@ public interface ApiService {
     @POST("add_products.php")
     Call<ServerResponse> addProduct(@Body Product product);
 
+    @GET("get_category_product.php")
+    Call<List<Product>> getProductsByCategory(@Query("category") String category);
+
 }

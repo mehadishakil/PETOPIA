@@ -43,6 +43,7 @@ public class FragmentHome extends Fragment implements IFragmentHome {
     RecyclerView rvYourPet, rvServices, rvArticle;
     PetAdapter petAdapter;
     View view;
+    TextView yourPetTxt;
 
     MaterialCardView addYourPetBtn;
 
@@ -61,6 +62,7 @@ public class FragmentHome extends Fragment implements IFragmentHome {
         rvServices = view.findViewById(R.id.RvServiceID);
         rvArticle = view.findViewById(R.id.RvArticleID);
         addYourPetBtn = view.findViewById(R.id.addYourPetLayout);
+        yourPetTxt = view.findViewById(R.id.YourPetTxt);
 
         fragmentHomeController = new FragmentHomeController(this, getContext());
 
@@ -117,6 +119,10 @@ public class FragmentHome extends Fragment implements IFragmentHome {
     public void onGetYourPetSuccess(List<YourPet> yourPetList) {
         if (yourPetList.size() == 0) {
             rvYourPet.setVisibility(View.GONE);
+            yourPetTxt.setVisibility(View.GONE);
+        } else {
+            rvYourPet.setVisibility(View.VISIBLE);
+            yourPetTxt.setVisibility(View.VISIBLE);
         }
         rvYourPet.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         petAdapter = new PetAdapter(yourPetList, getContext());
@@ -129,7 +135,6 @@ public class FragmentHome extends Fragment implements IFragmentHome {
                 new Services("Grooming", R.drawable.ic_grooming),
                 new Services("Veterinary", R.drawable.ic_veterinary),
                 new Services("Day Care", R.drawable.ic_daycare),
-                // Add more services as needed
         };
         rvServices.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         ServiceAdapter serviceAdapter = new ServiceAdapter(Arrays.asList(services));

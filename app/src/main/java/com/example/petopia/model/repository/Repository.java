@@ -84,4 +84,11 @@ public class Repository {
         call.enqueue(callback);
     }
 
+    public void getProductsByCategory(String category, Callback<List<Product>> callback) {
+        Call<List<Product>> call = apiService.getProductsByCategory(category);
+        call.enqueue(callback);
+    }
+
+
+
 }

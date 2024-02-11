@@ -13,7 +13,7 @@ class AddProductController(addProducts: AddProducts) {
     val addProducts = addProducts
 
     fun onAddProduct(category:String, title: String, description: String, price: String, image: String, ratings: String) {
-        val product = Product(category, title, description, price, image, ratings)
+        val product = Product(null , title, description, price, ratings, image, category)
 
         repository.addProduct(product, object : retrofit2.Callback<ServerResponse?> {
             override fun onResponse(

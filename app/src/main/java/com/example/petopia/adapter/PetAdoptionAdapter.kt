@@ -14,7 +14,6 @@ import com.bumptech.glide.Glide
 import com.example.petopia.R
 import com.example.petopia.model.pojo.PetAdoption
 import com.example.petopia.view.DisplayPetAdoption
-import com.example.petopia.view.ReadArticle
 
 
 class PetAdoptionAdapter(private val AdoptPet: List<PetAdoption>, val context: Context) :
@@ -24,7 +23,7 @@ class PetAdoptionAdapter(private val AdoptPet: List<PetAdoption>, val context: C
         val name: TextView = itemView.findViewById(R.id.petAdoptName)
         val category: TextView = itemView.findViewById(R.id.petAdoptCategory)
         val genderAge: TextView = itemView.findViewById(R.id.petAdoptGenderAge)
-        val image: ImageView = itemView.findViewById(R.id.petAdopImg)
+        val image: ImageView = itemView.findViewById(R.id.ProductItemImage)
         val adoptionPetLayout : ConstraintLayout = itemView.findViewById(R.id.AdoptPetCardDesign)
     }
 

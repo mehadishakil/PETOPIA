@@ -30,7 +30,6 @@ class FragmentAdoptionController(
                     fragmentAdoptionsInstance.onError("Error: ${response.message()}")
                 }
             }
-
             override fun onFailure(call: Call<List<PetAdoption>>, t: Throwable) {
                 fragmentAdoptionsInstance.onError("Exception: ${t.message}")
             }
