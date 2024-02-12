@@ -25,6 +25,7 @@
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/imageconstraintLayout"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="3.5"
@@ -58,7 +59,8 @@
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                 <com.denzcoskun.imageslider.ImageSlider
-                    android:id="@+id/image_sliderEvent"
+                    android:id="@+id/productImageSlider"
+                    paddingTop="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:iss_auto_cycle="true"
@@ -69,19 +71,10 @@
                     app:iss_unselected_dot="@drawable/default_unselected_dot"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
-
-<!--                <ImageView-->
-<!--                    android:id="@+id/id_image"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="0dp"-->
-<!--                    android:scaleType="centerCrop"-->
-<!--                    android:src="@drawable/ic_pet"-->
-<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                    app:layout_constraintEnd_toEndOf="parent"-->
-<!--                    app:layout_constraintStart_toStartOf="parent"-->
-<!--                    app:layout_constraintTop_toTopOf="parent" />-->
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -93,63 +86,63 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/adoptionPetImage">
+                app:layout_constraintTop_toBottomOf="@+id/displayProductImageId">
 
                 <TextView
                     android:id="@+id/id_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/jost_semibold"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/nunito_sans_bold"
                     android:text="Cat Food"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <RatingBar
+                    android:id="@+id/ratingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="-25dp"
+                    android:numStars="5"
+                    android:progressBackgroundTint="@android:color/darker_gray"
+                    android:progressTint="@android:color/holo_orange_dark"
+                    android:rating="4"
+                    android:scaleX="0.6"
+                    android:scaleY="0.6"
+                    android:stepSize="1"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_item_rating"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="@id/tv_item_rating" />
 
-<!--                <RatingBar-->
-<!--                    android:id="@+id/ratingBar"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginStart="30dp"-->
-<!--                    android:layout_marginTop="24dp"-->
-<!--                    android:numStars="5"-->
-<!--                    android:progressBackgroundTint="@android:color/darker_gray"-->
-<!--                    android:progressTint="@android:color/holo_orange_dark"-->
-<!--                    android:rating="4"-->
-<!--                    android:stepSize="1"-->
-<!--                    android:scaleX="0.8"-->
-<!--                    android:scaleY="0.8"-->
-<!--                    app:layout_constraintBottom_toBottomOf="@id/tv_item_rating"-->
-<!--                    app:layout_constraintStart_toStartOf="parent"-->
-<!--                    app:layout_constraintTop_toBottomOf="@id/id_title" />-->
+                <TextView
+                    android:id="@+id/tv_item_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="16dp"
+                    android:text="4.8"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toEndOf="@id/ratingBar"
+                    app:layout_constraintTop_toBottomOf="@+id/id_title" />
 
-
-<!--                <TextView-->
-<!--                    android:id="@+id/tv_item_rating"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginTop="8dp"-->
-<!--                    android:text="4.8"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:textSize="16sp"-->
-<!--                    app:layout_constraintStart_toEndOf="@+id/ratingBar"-->
-<!--                    app:layout_constraintTop_toBottomOf="@id/id_title" />-->
 
                 <ImageButton
                     android:id="@+id/btn_minus"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginStart="24dp"
                     android:background="@drawable/rounded_square"
+                    android:clickable="true"
                     android:padding="10dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/ic_minus"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/id_title"
+                    app:layout_constraintTop_toBottomOf="@id/ratingBar"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                 <TextView
@@ -159,7 +152,6 @@
                     android:layout_marginStart="16dp"
                     android:text="1"
                     android:textColor="@color/black"
-                    android:fontFamily="@font/raleway"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="@id/btn_minus"
                     app:layout_constraintStart_toEndOf="@id/btn_minus"
@@ -170,60 +162,60 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="24dp"
                     android:background="@drawable/rounded_square"
                     android:padding="10dp"
+                    android:clickable="true"
                     android:scaleType="fitXY"
                     android:src="@drawable/ic_plus"
-                    app:layout_constraintStart_toEndOf="@+id/id_quantity"
-                    app:layout_constraintTop_toBottomOf="@id/id_title"
+                    app:layout_constraintStart_toEndOf="@id/id_quantity"
+                    app:layout_constraintTop_toBottomOf="@id/ratingBar"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                 <TextView
                     android:id="@+id/id_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="32dp"
+                    android:layout_marginEnd="24dp"
                     android:text="1250 tk"
-                    android:textColor="#4E4B4B"
-                    android:fontFamily="@font/jost_semibold"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="@id/btn_minus"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/btn_minus" />
 
+
                 <TextView
-                    android:id="@+id/adoptPetNameID"
+                    android:id="@+id/tvdesc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
+                    android:layout_marginStart="24dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="30dp"
-                    android:text="Description"
                     android:fontFamily="@font/raleway_semibold"
+                    android:text="Description"
                     android:textColor="@color/black"
-                    android:textStyle="bold"
                     android:textSize="16sp"
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btn_plus" />
 
 
                 <TextView
-                    android:id="@+id/adoptionPetDetails"
+                    android:id="@+id/tvProductDescription"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="30dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="24dp"
                     android:layout_marginBottom="40dp"
                     android:fontFamily="@font/raleway"
                     android:text="Cold, creamy, so thick that your straw stands straight up, and filled with juicy berries."
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/id_title"
-                    app:layout_constraintTop_toBottomOf="@+id/adoptPetNameID" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvdesc" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -235,11 +227,13 @@
     <androidx.cardview.widget.CardView
         android:id="@id/addAdoptionPetToCartId"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_45sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:clickable="true"
+        android:elevation="10dp"
         app:cardCornerRadius="@dimen/_20sdp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -247,12 +241,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#8DF1D3E7"
+            android:fontFamily="@font/raleway_semibold"
+            android:gravity="center"
             android:text="Add To Cart"
             android:textColor="#3E3B3B"
-            android:background="#8DF1D3E7"
-            android:gravity="center"
-            android:textSize="18sp"
-            android:fontFamily="@font/raleway_semibold"/>
+            android:textSize="18sp" />
 
     </androidx.cardview.widget.CardView>
 

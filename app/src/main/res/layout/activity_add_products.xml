@@ -97,6 +97,20 @@
                 app:layout_constraintTop_toBottomOf="@+id/productTitleId" />
 
             <EditText
+                android:id="@+id/productRatingId"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:hint="Rating"
+                android:inputType="text"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/productPriceId" />
+
+            <EditText
                 android:id="@+id/productDescriptionId"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
@@ -108,8 +122,7 @@
                 android:minHeight="48dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/productPriceId" />
-
+                app:layout_constraintTop_toBottomOf="@+id/productRatingId" />
 
             <Button
                 android:id="@+id/btnUploadProductId"

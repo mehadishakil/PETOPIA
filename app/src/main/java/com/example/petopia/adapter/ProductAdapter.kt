@@ -2,6 +2,7 @@ package com.example.petopia.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.view.Display
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.petopia.R
 import com.example.petopia.model.pojo.Product
-import com.example.petopia.view.ReadArticle
 import com.example.petopia.view.ViewProduct
 
 class ProductAdapter(private val products: List<Product>, val context: Context) :
@@ -40,7 +40,6 @@ class ProductAdapter(private val products: List<Product>, val context: Context) 
         Glide.with(context)
                 .load(imageUrl)
                 .placeholder(R.drawable.loading_image)
-                .error(R.drawable.error_image)
                 .into(holder.productImage)
 
 

@@ -29,17 +29,17 @@ public class DisplayPetAdoption extends AppCompatActivity {
         setContentView(R.layout.activity_display_pet_adoption);
 
 
-        adoptPetImage = findViewById(R.id.adoptionPetImage);
+        adoptPetImage = findViewById(R.id.displayProductImageId);
         OwnerProfileImage = findViewById(R.id.OwnerProfileImage);
         btnContact = findViewById(R.id.adoptionPetContact);
-        adoptPetNameID = findViewById(R.id.adoptPetNameID);
+        adoptPetNameID = findViewById(R.id.tvdesc);
         adoptPetCategoryID = findViewById(R.id.adoptPetCategoryID);
         adoptPetGenderID = findViewById(R.id.adoptPetGenderID);
         adoptionPetAgeID = findViewById(R.id.adoptionPetAgeID);
         adoptionPetWeightID = findViewById(R.id.adoptionPetWeightID);
         adoptionPetLocation = findViewById(R.id.adoptionPetLocation);
         OnwerName = findViewById(R.id.OnwerName);
-        adoptionPetDetails = findViewById(R.id.adoptionPetDetails);
+        adoptionPetDetails = findViewById(R.id.tvProductDescription);
         textView4 = findViewById(R.id.textView4);
         addAdoptionPetToCartId = findViewById(R.id.addAdoptionPetToCartId);
         constraintLayout = findViewById(R.id.constraintLayout);

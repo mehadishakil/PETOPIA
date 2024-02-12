@@ -12,7 +12,7 @@ class AddProductController(addProducts: AddProducts) {
     private val repository = Repository()
     val addProducts = addProducts
 
-    fun onAddProduct(category:String, title: String, description: String, price: String, image: String, ratings: String) {
+    fun onAddProduct(title: String, description: String, price: String, ratings: String, image: String, category: String) {
         val product = Product(null , title, description, price, ratings, image, category)
 
         repository.addProduct(product, object : retrofit2.Callback<ServerResponse?> {

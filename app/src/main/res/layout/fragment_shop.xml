@@ -15,39 +15,39 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/search_bar"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
-                android:hint="Search"
-                app:boxCornerRadiusBottomEnd="20dp"
-                app:boxCornerRadiusBottomStart="20dp"
-                app:boxCornerRadiusTopEnd="20dp"
-                app:boxCornerRadiusTopStart="20dp"
-                app:endIconMode="clear_text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:startIconDrawable="@drawable/ic_search">
+            <!--            <com.google.android.material.textfield.TextInputLayout-->
+            <!--                android:id="@+id/search_bar"-->
+            <!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_margin="10dp"-->
+            <!--                android:focusable="true"-->
+            <!--                android:focusableInTouchMode="true"-->
+            <!--                android:hint="Search"-->
+            <!--                app:boxCornerRadiusBottomEnd="20dp"-->
+            <!--                app:boxCornerRadiusBottomStart="20dp"-->
+            <!--                app:boxCornerRadiusTopEnd="20dp"-->
+            <!--                app:boxCornerRadiusTopStart="20dp"-->
+            <!--                app:endIconMode="clear_text"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toTopOf="parent"-->
+            <!--                app:startIconDrawable="@drawable/ic_search">-->
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+            <!--                <com.google.android.material.textfield.TextInputEditText-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content" />-->
 
-            </com.google.android.material.textfield.TextInputLayout>
+            <!--            </com.google.android.material.textfield.TextInputLayout>-->
 
 
             <com.denzcoskun.imageslider.ImageSlider
-                android:id="@+id/ShopImage_slider"
+                android:id="@+id/ShopAdvertisementImageSlider"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
                 app:iss_auto_cycle="true"
                 app:iss_delay="1000"
                 app:iss_period="1000"
@@ -56,7 +56,7 @@
                 app:iss_unselected_dot="@drawable/default_unselected_dot"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/search_bar"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingClass" />
 
             <TextView
@@ -70,7 +70,7 @@
                 android:text="Categories"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ShopImage_slider" />
+                app:layout_constraintTop_toBottomOf="@+id/ShopAdvertisementImageSlider" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewShopCategoryID"
@@ -123,7 +123,7 @@
             <GridView
                 android:id="@+id/GvShopProducts"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_100sdp"
+                android:layout_height="0dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="10dp"

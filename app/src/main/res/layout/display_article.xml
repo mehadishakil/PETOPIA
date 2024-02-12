@@ -9,7 +9,8 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/_2sdp"
+        android:layout_margin="@dimen/_4sdp"
+        android:elevation="12dp"
         app:cardCornerRadius="@dimen/_10sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,6 +26,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/_10sdp"
+                android:elevation="4dp"
                 android:layout_weight="3"
                 app:cardCornerRadius="@dimen/_10sdp">
 
@@ -49,6 +51,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_10sdp"
+                    android:maxHeight="@dimen/_50sdp"
                     android:fontFamily="@font/raleway_semibold"
                     android:text="Healing Stones: Finding the Right One for You Healing "
                     android:textSize="16sp"
@@ -57,19 +60,22 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/displayArticleTvDate"
+                    android:id="@+id/displayArticleDetailsId"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/raleway"
-                    android:text="Fri, 28 Dec 2023"
+                    android:layout_height="0dp"
                     android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginRight="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
+                    android:gravity="center_vertical"
+                    android:fontFamily="@font/raleway"
+                    android:text="Fri, 28 Dec 2023"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/displayArticleTvTitle" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

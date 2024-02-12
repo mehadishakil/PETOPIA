@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -57,7 +56,7 @@ public class FragmentHome extends Fragment implements IFragmentHome {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        imageSlider = view.findViewById(R.id.image_sliderEvent);
+        imageSlider = view.findViewById(R.id.productImageSlider);
         rvYourPet = view.findViewById(R.id.RvYourPets);
         rvServices = view.findViewById(R.id.RvServiceID);
         rvArticle = view.findViewById(R.id.RvArticleID);

@@ -22,7 +22,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/adoptionPetImage"
+                android:id="@+id/displayProductImageId"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:scaleType="centerCrop"
@@ -77,7 +77,6 @@
                 android:numStars="5"
                 android:progressBackgroundTint="@android:color/darker_gray"
                 android:progressTint="@android:color/holo_orange_dark"
-
                 android:rating="4"
                 android:scaleX="0.4"
                 android:scaleY="0.4"
@@ -151,7 +150,7 @@
                 app:layout_constraintTop_toTopOf="@id/btn_minus" />
 
             <TextView
-                android:id="@+id/adoptPetNameID"
+                android:id="@+id/tvdesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="35dp"
@@ -168,7 +167,7 @@
 
 
             <TextView
-                android:id="@+id/adoptionPetDetails"
+                android:id="@+id/tvProductDescription"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginVertical="16dp"
@@ -181,7 +180,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/adoptPetNameID" />
+                app:layout_constraintTop_toBottomOf="@+id/tvdesc" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -189,7 +188,7 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/addProductToCart"
+        android:id="@+id/btnAddProductToCart"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
         android:layout_marginStart="40dp"

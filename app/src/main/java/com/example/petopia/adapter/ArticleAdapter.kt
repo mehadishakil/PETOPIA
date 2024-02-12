@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.view.menu.MenuView.ItemView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -22,7 +21,7 @@ class ArticleAdapter(private val article: List<Article>, val context : Context) 
 
     class ArticleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val title: TextView = itemView.findViewById(R.id.displayArticleTvTitle)
-        val content: TextView = itemView.findViewById(R.id.displayArticleTvDate)
+        val content: TextView = itemView.findViewById(R.id.displayArticleDetailsId)
         val image: ImageView = itemView.findViewById(R.id.displayIvArticle)
         val articleLayout : ConstraintLayout = itemView.findViewById(R.id.articleConstraintLayout)
     }

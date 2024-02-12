@@ -29,6 +29,7 @@ class AddProducts : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     lateinit var productTitleEdt: EditText
     lateinit var productDescriptionEdt: EditText
     lateinit var productPriceEdt: EditText
+    lateinit var productRatingEdt: EditText
     lateinit var productCategorySpinner : Spinner
     lateinit var submit: Button
     lateinit var selectProductBtn: Button
@@ -36,6 +37,7 @@ class AddProducts : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     lateinit var productDescription: String
     lateinit var productPrice: String
     lateinit var productCategory: String
+    lateinit var productRating: String
 
     var image: String = ""
 
@@ -50,7 +52,8 @@ class AddProducts : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         productImageView = findViewById(R.id.productImageId);
         productTitleEdt = findViewById(R.id.productTitleId);
         productDescriptionEdt = findViewById(R.id.productDescriptionId);
-        productPriceEdt = findViewById(R.id.productDescriptionId);
+        productPriceEdt = findViewById(R.id.productPriceId);
+        productRatingEdt = findViewById(R.id.productRatingId);
         productCategorySpinner = findViewById(R.id.spinnerProductCategory)
         submit = findViewById(R.id.btnUploadProductId)
         selectProductBtn = findViewById(R.id.selectProductBtn);
@@ -74,10 +77,11 @@ class AddProducts : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                 productTitle = productTitleEdt.text.toString()
                 productDescription = productDescriptionEdt.text.toString()
                 productPrice = productPriceEdt.text.toString()
+                productRating = productRatingEdt.text.toString()
 
 
                 if(image != null){
-                    addProductController.onAddProduct(productCategory, productTitle, productDescription, productPrice, image, "")
+                    addProductController.onAddProduct(productTitle, productDescription, productPrice, productRating, image, productCategory )
                 }else{
                     Toast.makeText(this, "Please select an image", Toast.LENGTH_SHORT).show()
                 }
