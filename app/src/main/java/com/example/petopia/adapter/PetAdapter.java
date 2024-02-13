@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,37 +18,32 @@ import com.example.petopia.model.pojo.YourPet;
 
 import java.util.ArrayList;
 import java.util.List;
-
-public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> implements DataObserver{
-
+public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> implements DataObserver {
 
     private List<YourPet> petList = new ArrayList<>();
     private LayoutInflater inflater;
-    Context context;
+    private Context context;
 
-
-
+    // Constructor
     public PetAdapter(List<YourPet> petList, Context context) {
+        this.petList.clear();
         this.petList = petList;
         this.context = context;
-        this.inflater = LayoutInflater.from(context);
+        this.inflater = LayoutInflater.from(context); // Initialize the inflater
     }
-
-
-
 
     @NonNull
     @Override
     public PetViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        // Use the initialized inflater to inflate the layout
         View itemView = inflater.inflate(R.layout.your_pet_layout, parent, false);
         return new PetViewHolder(itemView);
     }
 
-
     @Override
     public void onBindViewHolder(@NonNull PetViewHolder holder, int position) {
         YourPet pet = petList.get(position);
-        String imageUrl = "https://petopia-pet.000webhostapp.com/your_pet_image/"+pet.getImage();
+        String imageUrl = "https://petopia-pet.000webhostapp.com/your_pet_image/" + pet.getImage();
 
         Glide.with(context)
                 .load(imageUrl)
@@ -55,9 +51,6 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> i
                 .into(holder.yourPetImage);
         holder.yourPetName.setText(pet.getPetName());
     }
-
-
-
 
     @Override
     public int getItemCount() {
@@ -67,6 +60,7 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> i
     public static class PetViewHolder extends RecyclerView.ViewHolder {
         public ImageView yourPetImage;
         public TextView yourPetName;
+
         public PetViewHolder(View itemView) {
             super(itemView);
             yourPetImage = itemView.findViewById(R.id.YourPetImage);
@@ -74,17 +68,12 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> i
         }
     }
 
-
-
     @Override
     public void onDataChanged(List<YourPet> newData) {
-        petList.clear();
-        petList.addAll(newData);
+        // petList.clear();
+        // petList.addAll(newData);
         notifyDataSetChanged();
     }
-
 }
-
-
 
 

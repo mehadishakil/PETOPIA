@@ -43,7 +43,6 @@
                 android:scaleType="fitCenter"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:src="@drawable/error_image"
                 android:visibility="gone" />
 
             <TextView

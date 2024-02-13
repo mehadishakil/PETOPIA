@@ -64,6 +64,7 @@ public class VerifyOtp extends AppCompatActivity implements IVerifiyOtp {
 
                 // Concatenate the OTP digits
                 String otp2 = digit1 + digit2 + digit3 + digit4;
+                Toast.makeText(VerifyOtp.this, otp2+" your + get "+otp1 , Toast.LENGTH_SHORT).show();
 
                 if (otp1 == otp2){
                     verifyOtpController.onSignup(true, email, user_id);

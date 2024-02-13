@@ -116,13 +116,8 @@ public class FragmentHome extends Fragment implements IFragmentHome {
 
     @Override
     public void onGetYourPetSuccess(List<YourPet> yourPetList) {
-        if (yourPetList.size() == 0) {
-            rvYourPet.setVisibility(View.GONE);
-            yourPetTxt.setVisibility(View.GONE);
-        } else {
-            rvYourPet.setVisibility(View.VISIBLE);
-            yourPetTxt.setVisibility(View.VISIBLE);
-        }
+        Toast.makeText(getContext(), ""+yourPetList.size(), Toast.LENGTH_SHORT).show();
+
         rvYourPet.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         petAdapter = new PetAdapter(yourPetList, getContext());
         rvYourPet.setAdapter(petAdapter);
@@ -136,7 +131,7 @@ public class FragmentHome extends Fragment implements IFragmentHome {
                 new Services("Day Care", R.drawable.ic_daycare),
         };
         rvServices.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        ServiceAdapter serviceAdapter = new ServiceAdapter(Arrays.asList(services));
+        ServiceAdapter serviceAdapter = new ServiceAdapter(getContext(), Arrays.asList(services));
         rvServices.setAdapter(serviceAdapter);
     }
 

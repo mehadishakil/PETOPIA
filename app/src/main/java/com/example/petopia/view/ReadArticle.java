@@ -15,7 +15,6 @@ import com.example.petopia.model.pojo.Article;
 
 public class ReadArticle extends AppCompatActivity {
 
-    private Article data;
     private String title, content, image;
     TextView articleTitle, articleContent;
     ImageView articleImage;
@@ -54,7 +53,6 @@ public class ReadArticle extends AppCompatActivity {
             Glide.with(getApplicationContext())
                     .load(imageUrl)
                     .placeholder(R.drawable.loading_image)
-                    .error(R.drawable.error_image)
                     .into(articleImage);
 
             articleImage.setVisibility(View.VISIBLE);

@@ -44,7 +44,6 @@ class ArticleAdapter(private val article: List<Article>, val context : Context) 
         Glide.with(context)
             .load(imageUrl)
             .placeholder(R.drawable.loading_image)
-            .error(R.drawable.error_image)
             .into(holder.image)
 
 
