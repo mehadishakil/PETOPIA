@@ -92,21 +92,21 @@
                     android:id="@+id/id_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
                     android:fontFamily="@font/nunito_sans_bold"
                     android:text="Cat Food"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <RatingBar
                     android:id="@+id/ratingBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="-25dp"
+                    android:layout_marginStart="-32dp"
                     android:numStars="5"
                     android:progressBackgroundTint="@android:color/darker_gray"
                     android:progressTint="@android:color/holo_orange_dark"
@@ -135,7 +135,7 @@
                     android:id="@+id/btn_minus"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginStart="16dp"
                     android:background="@drawable/rounded_square"
                     android:clickable="true"
                     android:padding="10dp"
@@ -175,7 +175,7 @@
                     android:id="@+id/id_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="24dp"
+                    android:layout_marginEnd="16dp"
                     android:text="1250 tk"
                     android:textColor="@color/black"
                     android:textSize="16sp"
@@ -205,9 +205,9 @@
                     android:id="@+id/tvProductDescription"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
-                    android:layout_marginEnd="24dp"
+                    android:layout_marginEnd="16dp"
                     android:layout_marginBottom="40dp"
                     android:fontFamily="@font/raleway"
                     android:text="Cold, creamy, so thick that your straw stands straight up, and filled with juicy berries."
@@ -225,20 +225,21 @@
     </ScrollView>
 
     <androidx.cardview.widget.CardView
-        android:id="@id/addAdoptionPetToCartId"
+        android:id="@id/AddPetToCart"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:clickable="true"
         android:elevation="10dp"
         app:cardCornerRadius="@dimen/_20sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="DuplicateClickableBoundsCheck">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#8DF1D3E7"
