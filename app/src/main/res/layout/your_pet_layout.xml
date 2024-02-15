@@ -8,8 +8,11 @@
 
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:cardElevation="80dp"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="@dimen/_7sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -17,35 +20,31 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
-        <LinearLayout
+        <ImageView
+            android:id="@+id/YourPetImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:weightSum="10"
-            android:orientation="vertical">
+            android:layout_weight="8"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/ic_pet" />
 
-
-            <ImageView
-                android:id="@+id/YourPetImage"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="8"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/ic_pet" />
-
-            <TextView
-                android:id="@+id/YourPetName"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:layout_weight="2"
-                android:text="Simba"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@+id/YourPetImage"
-                tools:textSize="12sp" />
-
-
-        </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/YourPetName"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="4dp"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:text="Simba"
+        android:elevation="90dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/materialCardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:textSize="14sp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
