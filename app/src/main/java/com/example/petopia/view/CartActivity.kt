@@ -1,108 +1,82 @@
-//package com.example.petopia.view;
-//
-//import android.content.Intent;
-//import android.os.Bundle;
-//import android.view.View;
-//import android.widget.Button;
-//
-//import androidx.annotation.Nullable;
-//import androidx.appcompat.app.AppCompatActivity;
-//import androidx.databinding.DataBindingUtil;
-//import androidx.lifecycle.ViewModelProvider;
-//import androidx.recyclerview.widget.LinearLayoutManager;
-//import androidx.recyclerview.widget.RecyclerView;
-//
-//import java.util.ArrayList;
-//import java.util.List;
-//
-//import dev.atharvakulkarni.e_commerce.R;
-//import dev.atharvakulkarni.e_commerce.ViewModel.CartViewModel;
-//import dev.atharvakulkarni.e_commerce.adapter.CartAdapter;
-//import dev.atharvakulkarni.e_commerce.databinding.CartBinding;
-//import dev.atharvakulkarni.e_commerce.model.Product;
-//
-//public class CartActivity extends AppCompatActivity
-//{
-//    CartBinding cartBinding;
-//    RecyclerView recyclerView;
-//    LinearLayoutManager linearLayoutManager;
-//    Button continue_button;
-//    CartViewModel cartViewModel;
-//    CartAdapter cartAdapter;
-//
-//    private List<Product> favoriteList;
-//
-//    @Override
-//    protected void onCreate(@Nullable Bundle savedInstanceState)
-//    {
-//        super.onCreate(savedInstanceState);
-//        cartBinding = DataBindingUtil.setContentView(this, R.layout.cart);
-//
-//        getWindow().setStatusBarColor(getResources().getColor(R.color.white, getTheme()));
-//
-//        recyclerView = cartBinding.recyclerview;
-//        continue_button = cartBinding.continueButton;
-//
-//        setUpRecyclerView();
-//        getProductsInCart();
-//
-//        continue_button.setOnClickListener(new View.OnClickListener()
-//        {
-//            @Override
-//            public void onClick(View view)
-//            {
-//                Intent intent = new Intent(CartActivity.this, order_placing.class);
-//                startActivity(intent);
-//            }
-//        });
-//    }
-//
-//    private void setUpRecyclerView()
-//    {
-//        linearLayoutManager = new LinearLayoutManager(CartActivity.this);
-//        recyclerView.setLayoutManager(linearLayoutManager);
-//       // cartBinding.recyclerview.setHasFixedSize(true);
-//        cartViewModel = new ViewModelProvider(this).get(CartViewModel.class);
-//    }
-//
-//    private void getProductsInCart()
-//    {
-//        cartAdapter = new CartAdapter(recyclerView,CartActivity.this,new ArrayList<Integer>(),new ArrayList<String>(),new ArrayList<String>());
-//
-//
-//        cartAdapter.update(R.drawable.shoes1,"Asian WNDR-13 Running Shoes for Men(Green, Grey)","₹300.00");
-//        cartAdapter.update(R.drawable.shoes2,"Asian WNDR-13 Running Shoes for Men(Green, Grey)","₹500.00");
-//
-//        cartBinding.recyclerview.setAdapter(cartAdapter);
-//        cartAdapter.notifyDataSetChanged();
-//
-//
-//       /* cartViewModel.getProductsInCart(LoginUtils.getInstance(this).getUserInfo().getId()).observe(this, cartApiResponse ->
-//        {
-//            if (cartApiResponse != null)
-//            {
-//                favoriteList = cartApiResponse.getProductsInCart();
-//                if (favoriteList.size() == 0)
-//                {
-//                    //cartBinding.noBookmarks.setVisibility(View.VISIBLE);
-//                   // cartBinding.emptyCart.setVisibility(View.VISIBLE);
-//                }
-//                else
-//                    cartBinding.recyclerview.setVisibility(View.VISIBLE);
-//
-//                /*cartAdapter = new CartAdapter(getApplicationContext(), favoriteList, product ->
-//                {
-//                    Intent intent = new Intent(CartActivity.this, order_placing.class);
-//                    // Pass an object of product class
-//                    intent.putExtra(PRODUCT, (product));
-//                    startActivity(intent);
-//                }, this);*/
-//
-//
-//            }
-//
-//           // binding.loadingIndicator.setVisibility(View.GONE);
-//
-//        //});*/
-//
-//}
+package com.example.petopia.view
+
+import android.os.Bundle
+import android.widget.TextView
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Room.databaseBuilder
+import com.example.petopia.R
+import com.example.petopia.adapter.cartAdapter
+import com.example.petopia.db.AppDatabase
+import com.example.petopia.db.Item
+import com.example.petopia.db.ItemDAO
+import com.example.petopia.db.Space
+import java.security.AccessController.getContext
+
+class CartActivity : AppCompatActivity() {
+
+
+    lateinit var cartRecyclerView : RecyclerView
+    lateinit var cartItemTotalPrice : TextView
+    lateinit var cartTotalPrice : TextView
+    lateinit var cartDeliveryCharge : TextView
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_cart)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
+        cartItemTotalPrice = findViewById(R.id.cartItemTotalPrice)
+        cartTotalPrice = findViewById(R.id.cartTotalPrice)
+        cartDeliveryCharge = findViewById(R.id.cartDeliveryCharge)
+        cartRecyclerView = findViewById(R.id.cartRecyclerView)
+
+        getRoomData()
+
+    }
+
+
+    private fun getRoomData() {
+        val db: AppDatabase = databaseBuilder(this, AppDatabase::class.java, "cart_db").allowMainThreadQueries().build()
+        val itemDAO: ItemDAO = db.itemDAO()
+
+
+        cartRecyclerView.layoutManager = LinearLayoutManager(this)
+
+        val items: List<Item> = itemDAO.getAll()
+
+        val cartAdapter: cartAdapter = cartAdapter(items, cartItemTotalPrice, cartTotalPrice, cartDeliveryCharge)
+        cartRecyclerView.adapter = cartAdapter
+        cartRecyclerView.addItemDecoration(Space(5))
+
+
+        var sum = 0
+        var total = 0
+        val delivery = 110
+        for (i in items.indices) {
+            sum = sum + (items[i].getPrice().toInt() * items[i].getQuantity())
+        }
+        total += sum + delivery
+
+        cartItemTotalPrice.text = "$sum tk"
+
+        if (sum == 0) {
+            cartTotalPrice.text = "0 tk"
+            cartDeliveryCharge.text = "0 tk"
+        } else {
+            cartTotalPrice.text = "$total tk"
+            cartDeliveryCharge.text = "$delivery tk"
+        }
+    }
+
+
+}

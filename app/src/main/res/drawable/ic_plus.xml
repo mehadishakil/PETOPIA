@@ -1,13 +1,9 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="109dp"
-    android:height="109dp"
-    android:viewportWidth="109"
-    android:viewportHeight="109">
-  <group>
-    <clip-path
-        android:pathData="M0,0h109v109h-109z"/>
-    <path
-        android:pathData="M49.96,59.04H27.25C25.96,59.04 24.88,58.61 24.01,57.74C23.14,56.87 22.71,55.79 22.71,54.5C22.71,53.21 23.14,52.13 24.01,51.26C24.88,50.39 25.96,49.96 27.25,49.96H49.96V27.25C49.96,25.96 50.39,24.88 51.26,24.01C52.13,23.14 53.21,22.71 54.5,22.71C55.79,22.71 56.87,23.14 57.74,24.01C58.61,24.88 59.04,25.96 59.04,27.25V49.96H81.75C83.04,49.96 84.12,50.39 84.99,51.26C85.86,52.13 86.29,53.21 86.29,54.5C86.29,55.79 85.86,56.87 84.99,57.74C84.12,58.61 83.04,59.04 81.75,59.04H59.04V81.75C59.04,83.04 58.61,84.12 57.74,84.99C56.87,85.86 55.79,86.29 54.5,86.29C53.21,86.29 52.13,85.86 51.26,84.99C50.39,84.12 49.96,83.04 49.96,81.75V59.04Z"
-        android:fillColor="#1C1B1F"/>
-  </group>
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+  <path
+      android:fillColor="#FFFFFF"
+      android:pathData="M19,11h-6V5h-2v6H5v2h6v6h2v-6h6z"/>
 </vector>

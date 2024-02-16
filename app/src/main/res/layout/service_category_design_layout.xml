@@ -27,10 +27,11 @@
         android:layout_marginBottom="5dp"
         android:text="Daycare"
         android:textStyle="bold"
+        android:fontFamily="@font/raleway_semibold"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:textSize="16sp" />
+        tools:textSize="14sp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
