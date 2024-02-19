@@ -1,6 +1,7 @@
 package com.example.petopia.view
 
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageButton
 import android.widget.RatingBar
 import android.widget.TextView
@@ -25,6 +26,7 @@ class ViewProduct : AppCompatActivity() {
     private lateinit var plusButton: ImageButton
     private lateinit var priceTextView: TextView
     private lateinit var descriptionTextView: TextView
+    private var productPrice: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,12 +53,12 @@ class ViewProduct : AppCompatActivity() {
         if (intent != null) {
             val currentProduct = intent.getSerializableExtra("object") as Product?
             if (currentProduct != null) {
+                productPrice = currentProduct.price.toInt()
                 titleTextView.text = currentProduct.title
                 priceTextView.text = currentProduct.price+" tk"
                 descriptionTextView.text = currentProduct.description
                 ratingTextView.text = currentProduct.rating
                 ratingBar.rating = currentProduct.rating.toFloat()
-
                 val images = mutableListOf(currentProduct.image)
 
                 val imageList = ArrayList<SlideModel>()
@@ -65,16 +67,46 @@ class ViewProduct : AppCompatActivity() {
                     imageList.add(SlideModel(imageUrl, ScaleTypes.CENTER_INSIDE))
                 }
                 productImageSlider.setImageList(imageList, ScaleTypes.CENTER_INSIDE)
-
-
-
-
             } else {
                 Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show()
             }
         } else {
             Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show()
         }
+
+
+
+
+
+
+
+
+
+
+
+        plusButton.setOnClickListener(View.OnClickListener {
+            val currentValue: String = quantityTextView.getText().toString()
+            var value = currentValue.toInt()
+            value++
+            val yourPrice: Int = value * productPrice!!
+            priceTextView.setText(yourPrice.toString())
+            quantityTextView.setText(value.toString())
+        })
+
+        minusButton.setOnClickListener(View.OnClickListener {
+            val currentValue: String = quantityTextView.getText().toString()
+            var value = currentValue.toInt()
+            if (value > 1) {
+                value--
+                val yourPrice: Int = value * productPrice!!
+                priceTextView.setText(yourPrice.toString())
+                quantityTextView.setText(value.toString())
+            }
+        })
+
+
+
+
 
     }
 }

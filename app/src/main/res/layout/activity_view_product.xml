@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.ViewProduct">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -39,6 +40,7 @@
                     android:layout_marginTop="20dp"
                     android:background="@android:color/transparent"
                     android:scaleType="fitXY"
+                    android:elevation="4dp"
                     android:src="@drawable/ic_left_arrow"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -51,6 +53,7 @@
                     android:layout_marginEnd="20dp"
                     android:background="@android:color/transparent"
                     android:scaleType="fitXY"
+                    android:elevation="4dp"
                     android:src="@drawable/ic_share"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -137,6 +140,8 @@
                     android:background="@drawable/rounded_square"
                     android:clickable="true"
                     android:padding="10dp"
+                    android:foregroundTint="@color/white"
+                    app:rippleColor="@color/white"
                     android:scaleType="fitXY"
                     android:src="@drawable/ic_minus"
                     app:layout_constraintStart_toStartOf="parent"
@@ -162,6 +167,7 @@
                     android:layout_marginStart="16dp"
                     android:background="@drawable/rounded_square"
                     android:clickable="true"
+                    android:foregroundTint="@color/white"
                     android:padding="10dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/ic_plus"
@@ -186,9 +192,9 @@
                     android:id="@+id/tvdesc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="20dp"
-                    android:layout_marginEnd="30dp"
+                    android:layout_marginEnd="16dp"
                     android:fontFamily="@font/raleway_semibold"
                     android:text="Description"
                     android:textColor="@color/black"
@@ -222,31 +228,26 @@
 
     </ScrollView>
 
-    <androidx.cardview.widget.CardView
-        android:id="@id/AddPetToCart"
+
+    <Button
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/_42sdp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="#051F35"
         android:clickable="true"
         android:elevation="10dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:gravity="center"
+        android:text="Add To Cart"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
         app:cardCornerRadius="@dimen/_20sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="DuplicateClickableBoundsCheck">
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#8DF1D3E7"
-            android:fontFamily="@font/raleway_semibold"
-            android:gravity="center"
-            android:text="Add To Cart"
-            android:textColor="#3E3B3B"
-            android:textSize="18sp" />
-
-    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

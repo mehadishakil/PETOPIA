@@ -1,141 +1,141 @@
-//package com.example.petopia.adapter;
-//
-//import android.content.Context;
-//import android.view.LayoutInflater;
-//import android.view.View;
-//import android.view.ViewGroup;
-//import android.widget.ImageView;
-//import android.widget.TextView;
-//import android.widget.Toast;
-//
-//import androidx.annotation.NonNull;
-//import androidx.databinding.DataBindingUtil;
-//import androidx.lifecycle.ViewModelProvider;
-//import androidx.lifecycle.ViewModelStoreOwner;
-//import androidx.recyclerview.widget.RecyclerView;
-//
-//import java.util.ArrayList;
-//import java.util.List;
-//
-//import dev.atharvakulkarni.e_commerce.R;
-//import dev.atharvakulkarni.e_commerce.ViewModel.AddFavoriteViewModel;
-//import dev.atharvakulkarni.e_commerce.ViewModel.FromCartViewModel;
-//import dev.atharvakulkarni.e_commerce.ViewModel.RemoveFavoriteViewModel;
-//import dev.atharvakulkarni.e_commerce.databinding.CartItemBinding;
-//import dev.atharvakulkarni.e_commerce.model.Product;
-//
-//public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>
-//{
-//    Context context;
-//    RecyclerView recyclerView;
-//    ArrayList<Integer> image;
-//    ArrayList<String> title;
-//    ArrayList<String> price;
-//
-//    private List<Product> productsInCart;
-//
-//    private CartAdapterOnClickHandler clickHandler;
-//
-//    private AddFavoriteViewModel addFavoriteViewModel;
-//    private RemoveFavoriteViewModel removeFavoriteViewModel;
-//    private FromCartViewModel fromCartViewModel;
-//
-//    /**
-//     * The interface that receives onClick messages.
-//     */
-//    public interface CartAdapterOnClickHandler
-//    {
-//        void onClick(Product product);
-//    }
-//
-//    public CartAdapter(RecyclerView recyclerView, Context context, ArrayList<Integer> image, ArrayList<String> title, ArrayList<String> price)
-//    {
-//        this.recyclerView = recyclerView;
-//        this.context = context;
-//        this.image = image;
-//        this.title = title;
-//        this.price = price;
-//
-//
-//        addFavoriteViewModel = new ViewModelProvider((ViewModelStoreOwner) context).get(AddFavoriteViewModel.class);
-//        removeFavoriteViewModel = new ViewModelProvider((ViewModelStoreOwner) context).get(RemoveFavoriteViewModel.class);
-//        fromCartViewModel = new ViewModelProvider((ViewModelStoreOwner) context).get(FromCartViewModel.class);
-//    }
-//
-//    /*public CartAdapter(Context mContext, List<Product> productInCart, CartAdapter.CartAdapterOnClickHandler clickHandler, FragmentActivity activity)
-//    {
-//        this.context = context;
-//        this.productsInCart = productInCart;
-//        this.clickHandler = clickHandler;
-//        addFavoriteViewModel = new ViewModelProvider((ViewModelStoreOwner) context).get(AddFavoriteViewModel.class);
-//        removeFavoriteViewModel = new ViewModelProvider((ViewModelStoreOwner) context).get(RemoveFavoriteViewModel.class);
-//        fromCartViewModel = new ViewModelProvider((ViewModelStoreOwner) context).get(FromCartViewModel.class);
-//    }*/
-//
-//    public void update(Integer images,String titles,String prices)
-//    {
-//        image.add(images);
-//        title.add(titles);
-//        price.add(prices);
-//
-//        notifyDataSetChanged();  // refreshes the recycler view automatically
-//    }
-//
-//    @NonNull
-//    @Override
-//    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
-//    {
-//        //View view = LayoutInflater.from(context).inflate(R.layout.cart_item,parent,false);
-//        //return new ViewHolder(view);
-//
-//        CartItemBinding cartListItemBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.cart_item, parent, false);
-//        return new ViewHolder(cartListItemBinding);
-//    }
-//
-//    @Override
-//    public void onBindViewHolder(@NonNull ViewHolder holder, int position)
-//    {
-//        holder.binding.title.setText(title.get(position));
-//        holder.binding.price.setText(price.get(position));
-//        holder.binding.image.setImageResource(image.get(position));
-//    }
-//
-//    @Override
-//    public int getItemCount()
-//    {
-//        return title.size();
-//    }
-//
-//    public class ViewHolder extends RecyclerView.ViewHolder
-//    {
-//        TextView title,price;
-//        ImageView image;
-//        private final CartItemBinding binding;
-//
-//        public ViewHolder(CartItemBinding binding)
-//        {
-//            super(binding.getRoot());
-//            View itemView = binding.getRoot();
-//
-//            this.binding = binding;
-//
-//            title = binding.title;
-//            price = binding.price;
-//            image = binding.image;
-//
-//            itemView.setOnClickListener(new View.OnClickListener()
-//            {
-//                @Override
-//                public void onClick(View view)
-//                {
-//                    int position = recyclerView.getChildLayoutPosition(view);
-//
-//                    Toast.makeText(context, position+"", Toast.LENGTH_SHORT).show();
-//
-//                   // Intent intent = new Intent(context,address.class);
-//                    //    context.startActivity(intent);
-//                }
-//            });
-//        }
-//    }
-//}
+package com.example.petopia.adapter;
+
+import android.annotation.SuppressLint;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
+import com.example.petopia.db.AppDatabase;
+import com.example.petopia.db.Item;
+import com.example.petopia.db.ItemDAO;
+import java.util.List;
+import com.example.petopia.R;
+
+public class cartAdapter extends RecyclerView.Adapter<cartAdapter.CartViewHolder> {
+
+    List<Item> items;
+    TextView cartItemTotalPrice, cartTotalPrice, cartDeliveryCharge;
+    private LayoutInflater inflater;
+
+    public cartAdapter(List<Item> items, TextView cartItemTotalPrice, TextView cartTotalPrice, TextView cartDeliveryCharge) {
+        this.items = items;
+        this.cartItemTotalPrice = cartItemTotalPrice;
+        this.cartTotalPrice = cartTotalPrice;
+        this.cartDeliveryCharge = cartDeliveryCharge;
+    }
+
+    @NonNull
+    @Override
+    public CartViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+        View itemView = inflater.inflate(com.example.petopia.R.layout.cart_item_format, parent, false);
+        return new CartViewHolder(itemView);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull CartViewHolder holder, @SuppressLint("RecyclerView") int position) {
+
+        int price = Integer.parseInt(items.get(position).getPrice());
+        int totalPrice = price * items.get(position).getQuantity();
+
+
+        holder.cartItemTitle.setText(String.valueOf(items.get(position).getTitle()));
+        holder.cartItemPrice.setText(String.valueOf(totalPrice));
+        holder.cartItemQuantity.setText(String.valueOf(items.get(position).getQuantity()));
+
+
+        holder.increment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int qnt = items.get(position).getQuantity();
+                qnt++;
+                items.get(position).setQuantity(qnt);
+                notifyDataSetChanged();
+                updatePrice();
+            }
+        });
+
+        holder.decrement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int qnt = items.get(position).getQuantity();
+                if (qnt > 1) {
+                    qnt--;
+                    items.get(position).setQuantity(qnt);
+                    notifyDataSetChanged();
+                    updatePrice();
+                }
+            }
+        });
+
+        holder.delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AppDatabase db = Room.databaseBuilder(holder.cartItemTitle.getContext(), AppDatabase.class, "cart_db").allowMainThreadQueries().build();
+                ItemDAO itemDAO = db.itemDAO();
+                itemDAO.deleteById(items.get(position).getId());
+                items.remove(position);
+                notifyItemRemoved(position);
+                notifyItemRangeChanged(position, items.size()); // Notify item range changed to update positions
+                updatePrice();
+            }
+        });
+
+
+    }
+
+
+    @Override
+    public int getItemCount() {
+        return items.size();
+    }
+
+    public class CartViewHolder extends RecyclerView.ViewHolder {
+
+        TextView cartItemTitle, cartItemPrice, cartItemQuantity;
+        LinearLayout cartItemLayout;
+        ImageButton delete;
+        Button increment, decrement;
+
+        public CartViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            cartItemTitle = itemView.findViewById(R.id.cartItemTitle);
+            cartItemPrice = itemView.findViewById(R.id.cartItemPrice);
+            cartItemQuantity = itemView.findViewById(R.id.cartItemQuantity);
+            cartItemLayout = itemView.findViewById(R.id.cartItemLayout);
+            delete = itemView.findViewById(R.id.cartItemDeleteBtn);
+            increment = itemView.findViewById(R.id.id_cartQuantityIncrement);
+            decrement = itemView.findViewById(R.id.id_cartQuantityDecrement);
+        }
+    }
+
+
+    private void updatePrice() {
+        int sum = 0, total = 0, delivery = 110;
+        for (int i = 0; i < items.size(); i++) {
+            sum = sum + (Integer.parseInt(items.get(i).getPrice()) * items.get(i).getQuantity());
+        }
+        total += sum + delivery;
+
+
+        cartItemTotalPrice.setText(String.valueOf(sum)+" tk");
+        if(sum == 0){
+            cartTotalPrice.setText("0 tk");
+            cartDeliveryCharge.setText("0 tk");
+        }else {
+            cartTotalPrice.setText(String.valueOf(total) + " tk");
+            cartDeliveryCharge.setText(String.valueOf(delivery) + " tk");
+        }
+
+
+    }
+
+
+}
