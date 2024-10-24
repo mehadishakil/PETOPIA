@@ -52,11 +52,9 @@ As a solo project, I will handle all aspects of the development, including but n
 ## Methodology
 In developing the PETOPIA Android application, we will adhere to a structured and iterative software development methodology. Our chosen approach for this project is **Agile**, specifically **Scrum**, which emphasizes flexibility, collaboration, and the continuous gathering of feedback.
 
-## Project Initiation
-In this initial phase, we will analyze the project's scope, objectives, and requirements. This phase will kick off with a project defining the project's goals, stakeholders, and initial planning. Subsequently, we will engage in a comprehensive requirement-gathering process, collecting information.
-![image](https://github.com/mehadishakil/PETOPIA/assets/112794443/74b83072-7d52-4d01-8168-9c35b88a23b0)
-![image](https://github.com/mehadishakil/PETOPIA/assets/112794443/84c7ef0d-7265-453c-a99f-dda0ecfd8e3a)
-![image](https://github.com/mehadishakil/PETOPIA/assets/112794443/7d2f2517-fb39-47f4-b121-dfabba1b8d70)
+## Images
+![Group 148](https://github.com/user-attachments/assets/20e853f8-b0e9-4396-a23d-78f5c5e80c96)
+
 
 ## Motivation
 Motivated by this Behance UI/UX design project [PawLife](https://www.behance.net/gallery/177422437/Pet-Care-Application-Paw-Life-UX-UI-Case-Study?tracking_source=search_projects|pet+app).
